@@ -1,0 +1,9 @@
+.sideBar {
+    background-color: #888;
+    width: 100%;
+    height: calc(100vh - 83px);
+}
+
+.sideBar .selected {
+    background-color: #999 !important;
+}

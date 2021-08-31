@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import BookTile from "./bookTile";
-import { dummyBooks } from "./../../dummyData/dummyBooks";
 import axios from "axios";
 
 class BookTilesSection extends Component {

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Header from "./../../common/header";
 import SideBar from "../../common/sideBar";
-import { dummyCategories } from "../../dummyData/dummyCategories";
 import BookTilesSection from "./bookTilesSection";
 import axios from "axios";
 

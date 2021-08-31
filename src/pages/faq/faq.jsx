@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import Header from "../../common/header";
-import reactDom from "react-dom";
+
 const Faq = () => {
   return (
     <div>

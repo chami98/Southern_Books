@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import { useState } from "react";
 import "./styles/sideBar.css";
-import { dummyCategories } from "./../dummyData/dummyCategories";
-import Home from "../pages/home/home";
-import axios from "axios";
 
 class SideBar extends Component {
   state = {};

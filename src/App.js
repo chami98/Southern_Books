@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Route, Redirect, Switch } from "react-router";
 import Home from "./pages/home/home";

@@ -1,0 +1,23 @@
+.bookTile {
+  border: 1px solid #888;
+  border-radius: 10px;
+  padding-bottom: 15px;
+}
+
+.bookTile h5 {
+  text-align: left;
+}
+
+.image {
+  margin-bottom: 10px;
+}
+
+.bookTile img {
+  height: 100px;
+  width: auto;
+  margin: 0 auto;
+}
+
+.priceRow {
+  text-align: left;
+}

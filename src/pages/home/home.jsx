@@ -3,24 +3,37 @@ import Header from "./../../common/header";
 import SideBar from "../../common/sideBar";
 import { dummyCategories } from "../../dummyData/dummyCategories";
 import BookTilesSection from "./bookTilesSection";
+import axios from "axios";
 
 class Home extends Component {
   state = {
-    selectedCategoryId: dummyCategories[0].id,
-    selectedCategoryName: dummyCategories[0].name,
+    categories: [],
   };
+
+  componentDidMount() {
+    axios.get("http://localhost:3005/categories").then((result) => {
+      this.setState({
+        categories: [
+          { name: "All categories", id: "ALL_CATEGORIES" },
+          ...result.data,
+        ],
+        selectedCategoryId: "ALL_CATEGORIES",
+      });
+    });
+  }
 
   handleSelectedId = (id) =>
     this.setState({
       selectedCategoryId: id,
     });
 
-  handleSelectedName = (name) =>
-    this.setState({
-      selectedCategoryName: name,
-    });
 
   render() {
+    const selectedCategory = this.state.categories.find(
+      (c) => c.id === this.state.selectedCategoryId
+    );
+    const selectedCategoryName = selectedCategory ? selectedCategory.name : "Loading.....";
+
     return (
       <div>
         <Header />
@@ -29,14 +42,14 @@ class Home extends Component {
             <SideBar
               onChangeCategoryId={this.handleSelectedId}
               onChangeCategoryName={this.handleSelectedName}
-              selectedCategoryId ={this.state.selectedCategoryId}
-              selectedCategoryName ={this.state.selectedCategoryName}
-
+              selectedCategoryId={this.state.selectedCategoryId}
+              selectedCategoryName={this.state.selectedCategoryName}
+              categories={this.state.categories}
             />
           </div>
           <div className="col-xl-9 col-lg-9 col-md-8 col-sm-6 ">
-            <h1>Selected Category: {this.state.selectedCategoryName}</h1>
-            <BookTilesSection/>
+            <h2 style={{ padding: "20px" }}> {selectedCategoryName}</h2>
+            <BookTilesSection />
           </div>
         </div>
       </div>

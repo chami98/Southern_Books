@@ -13,9 +13,6 @@ function App() {
         <Route path="/faq" component={Faq} />
         <Route path="/about" component={About} />
         <Redirect from="/" exact to="/home" />
-
-
-
       </Switch>
     </div>
   );

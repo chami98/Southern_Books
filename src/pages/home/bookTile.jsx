@@ -1,24 +1,26 @@
 import React, { Component } from "react";
-import { dummyBooks } from "../../dummyData/dummyBooks";
+import "./styles/bookTile.css";
 
 class BookTile extends Component {
   state = {};
   render() {
     return (
-      <div className="container">
-        <h2 style={{ textAlign: "left" }}>{this.props.name}</h2>
-        <div className="row" style={{ marginBottom: "10px" }}>
-          <img style ={{height: "200px" , width: "auto" , margin: "0 auto"}}
-            src={this.props.imageUrl}
-            alt=""
-          />
+      <div className="container bookTile" style={{marginBottom: "10px"}}>
+        <h6 style={{ fontSize: "0.82rem" }}>{this.props.name}</h6>
+        <div className="row image">
+          <img src={this.props.imageUrl} alt="" />
         </div>
-        <div className="row">
-          <div className="col-8">
-            <h4 style={{ textAlign: "left" }}>Price: {this.props.price} </h4>
+        <div className="row priceRow">
+          <div className="col-6">
+            <h6 style={{ fontSize: "0.6rem" }}>Price: {this.props.price} </h6>
           </div>
-          <div className="col-4">
-            <button className="btn btn-primary"> Add </button>
+          <div className="col-6">
+            <button
+              className="btn btn-primary btn-sm"
+              style={{ fontSize: "0.6rem" }}
+            >
+              Add
+            </button>
           </div>
         </div>
       </div>

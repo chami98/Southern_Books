@@ -3,42 +3,48 @@ import { useState } from "react";
 import "./styles/sideBar.css";
 import { dummyCategories } from "./../dummyData/dummyCategories";
 import Home from "../pages/home/home";
+import axios from "axios";
 
 class SideBar extends Component {
   state = {};
 
   render() {
     return (
-      <div className="d-flex flex-column flex-shrink-0 p-3 text-white sideBar">
+      <div
+        className="d-flex flex-column flex-shrink-0 p-3 text-white sideBar"
+        style={{ position: "fixed", top: "71px", width: "200px" }}
+      >
         <a
           href="/"
           className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+          style={{ margin: "0 auto", fontSize: "22px" }}
         >
-          <svg className="bi me-2" width="40" height="32"></svg>
-          <span className="fs-4">Categories</span>
+          {/* <svg className="bi me-2" width="40" height="32"></svg> */}
+          <span>Categories</span>
         </a>
         <hr />
         <ul
           className="nav nav-pills flex-column mb-auto "
           style={{ textAlign: "left" }}
         >
-          {dummyCategories.map((c) => (
-            <li key={c.id}>
+         
+
+          {this.props.categories.map((category) => (
+            <li key={category.id}>
               <a
                 href="#"
                 className={`nav-link text-white ${
-                  c.id === this.props.selectedCategoryId
+                  category.id === this.props.selectedCategoryId
                     ? "active selected"
                     : ""
                 }`}
                 onClick={() => {
-                    this.props.onChangeCategoryId(c.id);
-                    this.props.onChangeCategoryName(c.name);
-                }
-                }
+                  this.props.onChangeCategoryId(category.id);
+                  // this.props.onChangeCategoryName(c.name);
+                }}
               >
-                <svg className="bi me-2" width="16" height="16"></svg>
-                {c.name}
+                {/* <svg className="bi me-2" width="16" height="16"></svg> */}
+                {category.name}
               </a>
             </li>
           ))}

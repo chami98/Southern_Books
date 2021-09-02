@@ -1,6 +1,6 @@
 .bookTile {
-  border: 1px solid #888;
-  border-radius: 10px;
+  /* border: 1px solid #888;
+  border-radius: 10px; */
   padding-bottom: 15px;
 }
 
@@ -10,10 +10,11 @@
 
 .image {
   margin-bottom: 10px;
+  padding: 0px;
 }
 
 .bookTile img {
-  height: 100px;
+  height: 200px;
   width: auto;
   margin: 0 auto;
 }

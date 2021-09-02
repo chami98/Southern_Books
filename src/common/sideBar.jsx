@@ -1,57 +1,66 @@
-import React, { Component } from "react";
+import React from "react";
 import "./styles/sideBar.css";
+import { useSelector, useDispatch } from 'react-redux';
 
-class SideBar extends Component {
-  state = {};
+const SideBar = () => {
 
-  render() {
-    return (
-      <div
-        className="d-flex flex-column flex-shrink-0 p-3 text-white sideBar"
-        style={{ position: "fixed", top: "71px", width: "200px" }}
-      >
-        <a
-          href="/"
-          className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-          style={{ margin: "0 auto", fontSize: "22px" }}
-        >
-          {/* <svg className="bi me-2" width="40" height="32"></svg> */}
-          <span>Categories</span>
-        </a>
-        <hr />
-        <ul
-          className="nav nav-pills flex-column mb-auto "
-          style={{ textAlign: "left" }}
-        >
-         
+  const categories = useSelector((s) => s.app.categories);
+  const selectedCategoryId = useSelector((s) => s.app.selectedCategoryId);
 
-          {this.props.categories.map((category) => (
-            <li key={category.id}>
-              <a
-                href="#"
-                className={`nav-link text-white ${
-                  category.id === this.props.selectedCategoryId
-                    ? "active selected"
-                    : ""
-                }`}
-                onClick={() => {
-                  this.props.onChangeCategoryId(category.id);
-                  // this.props.onChangeCategoryName(c.name);
-                }}
-              >
-                {/* <svg className="bi me-2" width="16" height="16"></svg> */}
-                {category.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <hr />
-      </div>
-    );
+  const dispath = useDispatch()
+
+  const onChangeCategoryId = (id) => {
+    dispath(
+      {
+        type : "SET_CATEGORY_ID",
+        payload : id
+      }
+    )
   }
-}
 
+  return (
+    <div
+      className="d-flex flex-column flex-shrink-3 p-3 text-white sideBar"
+      style={{ width: "100%", height: "100%" }}
+    >
+      <a
+        href="/"
+        className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+        style={{ margin: "0 auto", fontSize: "22px" }}
+      >
+        <span>Categories</span>
+      </a>
+      <hr />
+      <ul
+        className="nav nav-pills flex-column mb-auto "
+        style={{ textAlign: "left" }}
+      >
+        {categories.map((category) => (
+          <li key={category.id}>
+            <a
+              href="#"
+              className={`nav-link text-white ${
+                category.id === selectedCategoryId
+                  ? "active selected"
+                  : ""
+              }`}
+              onClick={() => {
+                onChangeCategoryId(category.id);
+              }}
+            >
+              {category.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <hr />
+    </div>
+  );
+}
+ 
 export default SideBar;
+
+
 
 // const SideBar = () => {
 //   const [selectedCategoryId, setselectedCategoryId] = useState(

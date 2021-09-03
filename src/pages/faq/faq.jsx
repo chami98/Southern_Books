@@ -4,15 +4,18 @@ import Layout from "./../../common/layout";
 const Faq = () => {
   return (
     <Layout hideSideBar>
-      <div className="row" >
-        <div className="col-md-5" style={{marginTop: "50px"}}>
+      <div className="row">
+        <div className="col-md-5" style={{ marginTop: "50px" }}>
           <img
             src="https://www.powrsale.com/images/faq.png"
             alt=""
-            style={{ height: "300px" }}
+            style={{ width: "90%", marginTop: "10vh" }}
           />
         </div>
-        <div className="col-md-7" style={{marginTop: "50px"}}>
+        <div
+          className="col-md-7"
+          style={{ marginTop: "20vh", paddingRight: "50px" }}
+        >
           <p style={{ textAlign: "left" }}>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -23,8 +26,7 @@ const Faq = () => {
             with the release of Letraset sheets containing Lorem Ipsum passages,
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
-          </p>{" "}
-          <br />
+          </p>
           <p style={{ textAlign: "left" }}>
             Contrary to popular belief, Lorem Ipsum is not simply random text.
             It has roots in a piece of classical Latin literature from 45 BC,

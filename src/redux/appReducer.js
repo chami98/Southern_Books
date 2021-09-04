@@ -3,6 +3,7 @@ const _initState = {
   categories: [],
   count: 0,
   books: [],
+  booksLoading: false,
 };
 
 export const appReducer = (state = _initState, action) => {
@@ -42,6 +43,21 @@ export const appReducer = (state = _initState, action) => {
         books : action.payload.books
       }
     }
+
+    case "BOOKS_LOADING" : {
+      return {
+        ...state,
+        booksLoading: action.payload
+      }
+    }
+
+    case "BOOKS_LOADING_FINISHED" : {
+      return {
+        ...state,
+        booksLoading: false
+      }
+    }
+
 
     default:
       return state;

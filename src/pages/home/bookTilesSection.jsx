@@ -8,37 +8,86 @@ import { useState, useEffect } from "react";
 const BookTilesSection = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.app.books);
-  const selectedCategoryId = useSelector((state) => state.app.selectedCategoryId);
-
+  const selectedCategoryId = useSelector(
+    (state) => state.app.selectedCategoryId
+  );
 
   useEffect(() => {
-    axios.get(BASE_URL + "/booksByCategory" + ( selectedCategoryId ? ("?categoryId=" + selectedCategoryId) : "" )).then((result) => {
-      const payload = {
-        books: [...result.data],
-      };
-
-      dispatch({
-        type: "SET_BOOKS",
-        payload: payload,
-      });
+    // starts loading
+    dispatch({
+      type: "BOOKS_LOADING",
+      payload: true,
     });
+
+    axios
+      .get(
+        BASE_URL +
+          "/books" +
+          (selectedCategoryId ? "?categoryId=" + selectedCategoryId : "")
+      )
+      .then((result) => {
+        // Loading Finished
+        dispatch({
+          type: "BOOKS_LOADING_FINISHED",
+        });
+
+        const payload = {
+          books: [...result.data],
+        };
+
+        dispatch({
+          type: "SET_BOOKS",
+          payload: payload,
+        });
+      })
+
+      .catch(() => {
+        // Loading Finished
+        dispatch({
+          type: "BOOKS_LOADING_FINISHED",
+        });
+      });
   }, [selectedCategoryId]);
 
-  return (
-    <div className="container">
-      <div className="row">
-        {books.map((book) => (
-          <div key={book.id} className="col-lg-3 col-md-4 col-sm-6">
-            <BookTile
-              name={book.name}
-              price={book.price}
-              imageUrl={book.imageUrl}
-            />
-          </div>
-        ))}
+  const booksLoading = useSelector((s) => s.app.booksLoading);
+
+  if (booksLoading) {
+    return (
+      <div className = "d-flex justify-content-center">
+        <div
+          className="spinner-border text-primary "
+          style={{width: "5rem", height: "5rem" , fontSize: "30px"  , marginTop: "30vh"}}
+          role="status"
+        > 
+          <span className="sr-only"></span>
+        </div> 
       </div>
-    </div>
-  );
+    );
+  } else if (!booksLoading && books.length == 0) {
+    return <div>No Books!</div>;
+  } else {
+    return (
+      <div className="container">
+        <div className="row">
+          {books.map((book) => (
+            <div key={book.id} className="col-lg-3 col-md-4 col-sm-6">
+              <BookTile
+                name={book.name}
+                price={book.price}
+                imageUrl={book.imageUrl}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 };
 
 export default BookTilesSection;
+
+const randFunc = () => {
+  return {
+    message: "Something went wrong",
+  };
+};

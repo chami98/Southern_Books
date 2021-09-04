@@ -2,6 +2,7 @@ const _initState = {
   name: "saman",
   categories: [],
   count: 0,
+  books: [],
 };
 
 export const appReducer = (state = _initState, action) => {
@@ -34,6 +35,13 @@ export const appReducer = (state = _initState, action) => {
         selectedCategoryId : action.payload
       }
   }
+
+    case "SET_BOOKS" : {
+      return {
+        ...state,
+        books : action.payload.books
+      }
+    }
 
     default:
       return state;

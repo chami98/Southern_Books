@@ -53,14 +53,19 @@ const BookTilesSection = () => {
 
   if (booksLoading) {
     return (
-      <div className = "d-flex justify-content-center">
+      <div className="d-flex justify-content-center">
         <div
           className="spinner-border text-primary "
-          style={{width: "5rem", height: "5rem" , fontSize: "30px"  , marginTop: "30vh"}}
+          style={{
+            width: "5rem",
+            height: "5rem",
+            fontSize: "30px",
+            marginTop: "30vh",
+          }}
           role="status"
-        > 
+        >
           <span className="sr-only"></span>
-        </div> 
+        </div>
       </div>
     );
   } else if (!booksLoading && books.length == 0) {

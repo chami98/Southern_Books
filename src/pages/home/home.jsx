@@ -13,7 +13,7 @@ const Home = () => {
   const selectedCategory = categories.find(
     (c) => c.id === selectedCategoryId
   );
-  const selectedCategoryName = selectedCategory ? selectedCategory.name : "Loading.....";
+  const selectedCategoryName = selectedCategory ? selectedCategory.name : "";
 
   return (
     <Layout>

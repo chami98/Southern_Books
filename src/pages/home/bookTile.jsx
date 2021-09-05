@@ -20,7 +20,7 @@ class BookTile extends Component {
             className="btn btn-primary btn-sm"
             style={{ fontSize: "0.6rem" }}
           >
-            Add to Cart
+            Add to Cart 
           </button>
         </div>
         {/* <div className="col-6"></div> */}

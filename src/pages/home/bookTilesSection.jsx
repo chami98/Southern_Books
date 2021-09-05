@@ -20,11 +20,11 @@ const BookTilesSection = () => {
     });
 
     axios
-      .get(
-        BASE_URL +
-          "/books" +
-          (selectedCategoryId ? "?categoryId=" + selectedCategoryId : "")
-      )
+      .get(BASE_URL +  "/books", {
+        params : {
+          categoryId : selectedCategoryId
+        }
+      } )
       .then((result) => {
         // Loading Finished
         dispatch({

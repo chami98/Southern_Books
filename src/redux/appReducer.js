@@ -4,6 +4,8 @@ const _initState = {
   count: 0,
   books: [],
   booksLoading: false,
+  searchString: "",
+  currentBook: {},
 };
 
 export const appReducer = (state = _initState, action) => {
@@ -58,6 +60,12 @@ export const appReducer = (state = _initState, action) => {
       }
     }
 
+    case "SET_SEARCH_STRING" : {
+      return {
+        ...state,
+        searchString : action.payload
+      }
+    }
 
     default:
       return state;

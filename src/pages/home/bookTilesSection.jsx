@@ -7,10 +7,12 @@ import { useState, useEffect } from "react";
 
 const BookTilesSection = () => {
   const dispatch = useDispatch();
+
   const books = useSelector((state) => state.app.books);
   const selectedCategoryId = useSelector(
     (state) => state.app.selectedCategoryId
   );
+  const searchString = useSelector((state) => state.app.searchString);
 
   useEffect(() => {
     // starts loading
@@ -22,7 +24,8 @@ const BookTilesSection = () => {
     axios
       .get(BASE_URL +  "/books", {
         params : {
-          categoryId : selectedCategoryId
+          categoryId : selectedCategoryId,
+          searchString : searchString
         }
       } )
       .then((result) => {
@@ -47,7 +50,7 @@ const BookTilesSection = () => {
           type: "BOOKS_LOADING_FINISHED",
         });
       });
-  }, [selectedCategoryId]);
+  }, [selectedCategoryId , searchString]);
 
   const booksLoading = useSelector((s) => s.app.booksLoading);
 
@@ -78,6 +81,7 @@ const BookTilesSection = () => {
             <div key={book.id} className="col-lg-3 col-md-4 col-sm-6">
               <BookTile
                 name={book.name}
+                id={book.id}
                 price={book.price}
                 imageUrl={book.imageUrl}
               />
@@ -96,3 +100,4 @@ const randFunc = () => {
     message: "Something went wrong",
   };
 };
+

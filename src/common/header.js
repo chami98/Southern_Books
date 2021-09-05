@@ -1,6 +1,18 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
+
+  const  dispatch = useDispatch(); 
+
+  const onChangeHandler = (value)=> {
+   
+    dispatch({
+      type: "SET_SEARCH_STRING",
+      payload: value,
+    });
+  }
+
   return (
     <header className="p-2 bg-dark text-white" 
     style={{position:"fixed",
@@ -36,6 +48,7 @@ const Header = () => {
               className="form-control form-control-sm form-control-dark"
               placeholder="Search..."
               aria-label="Search"
+              onChange={(e) => onChangeHandler(e.target.value)}
             />
           </form>
 

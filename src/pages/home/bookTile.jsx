@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles/bookTile.css";
+import { Link } from "react-router-dom";
 
 class BookTile extends Component {
   state = {};
@@ -8,10 +9,12 @@ class BookTile extends Component {
       <div className="container bookTile" style={{ marginBottom: "10px" }}>
         <h6 style={{ fontSize: "0.82rem" }}>{this.props.name}</h6>
         <div className="row image">
-          <img src={this.props.imageUrl} alt="" />
+          <Link to={`/books/${this.props.id}`}>
+            <img src={this.props.imageUrl} alt="" />
+          </Link>
         </div>
         {/* <div className="row priceRow"> */}
-        <div >
+        <div>
           <h6 style={{ fontSize: "0.8rem" }}>Price: Rs.{this.props.price} </h6>
           <button
             className="btn btn-primary btn-sm"

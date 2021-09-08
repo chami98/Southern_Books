@@ -1,23 +1,21 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
 const Header = () => {
+  const dispatch = useDispatch();
 
-  const  dispatch = useDispatch(); 
-
-  const onChangeHandler = (value)=> {
-   
+  const onChangeHandler = (value) => {
     dispatch({
       type: "SET_SEARCH_STRING",
       payload: value,
     });
-  }
+  };
 
   return (
-    <header className="p-2 bg-dark text-white" 
-    style={{position:"fixed",
-     width: '100%', 
-     top: 0}}>
+    <header
+      className="p-2 bg-dark text-white"
+      style={{ position: "fixed", width: "100%", top: 0 }}
+    >
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-start">
           {/* <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -30,6 +28,7 @@ const Header = () => {
                 Home
               </Link>
             </li>
+
             <li>
               <Link to="/faq" className="nav-link px-1 text-white">
                 FAQs

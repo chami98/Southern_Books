@@ -1,6 +1,7 @@
 const _initState = {
   currentBook: {},
   loading: false,
+  responseErrorCode: null,
 };
 
 export const bookReducer = (state = _initState, action) => {
@@ -18,6 +19,7 @@ export const bookReducer = (state = _initState, action) => {
         ...state,
         currentBook: action.payload,
         loading: false,
+        responseErrorCode: null
       };
     }
 
@@ -25,6 +27,7 @@ export const bookReducer = (state = _initState, action) => {
       return {
         ...state,
         loading: false,
+        responseErrorCode: action.payload.statusCode
       };
     }
 

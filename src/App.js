@@ -4,6 +4,7 @@ import Home from "./pages/home/home";
 import Faq from "./pages/faq/faq";
 import About from "./pages/about/about";
 import Book from './pages/book';
+import ErrorComponent from "./pages/errorComponent/errorComponent";
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
         <Route path="/faq" component={Faq} />
         <Route path="/about" component={About} />
         <Route path="/books/:id" component={Book} />
+        <Route path="/notFound" component={ErrorComponent} />
 
 
-        <Redirect from="/" exact to="/home" />
+        <Redirect exact to="/notFound" />
       </Switch>
     </div>
   );

@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const Header = () => {
   const dispatch = useDispatch();
+  const selectedBooks = useSelector((state) => state.cart.selectedBooks);
+
 
   const onChangeHandler = (value) => {
     dispatch({
@@ -10,6 +15,7 @@ const Header = () => {
       payload: value,
     });
   };
+
 
   return (
     <header
@@ -58,6 +64,21 @@ const Header = () => {
             <button type="button" className="btn btn-sm btn-warning">
               Sign-up
             </button>
+          </div>
+          <div>
+            <Link to="/faq" className="nav-link px-1 text-white">
+              <FontAwesomeIcon
+                icon={faShoppingCart}
+                style={{
+                  marginLeft: "20px",
+                  fontSize: "21px",
+                  marginBottom: "0px",
+                }}
+              />{" "}
+              <span class="position-absolute top-1 start-70 translate-middle badge rounded-pill bg-danger">
+                {selectedBooks.length}
+              </span>
+            </Link>
           </div>
         </div>
       </div>

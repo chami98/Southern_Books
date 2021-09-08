@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "./../constants";
 import { useEffect } from "react";
@@ -17,6 +17,24 @@ const Book = ({ match }) => {
   const responseErrorCode = useSelector(
     (state) => state.book.responseErrorCode
   );
+
+  const [quantity, setQuantity] = useState(0);
+  console.log(quantity);
+
+  const handleQuantity = (value) => {
+    setQuantity(value);
+  };
+
+  const handleAddtoCart = () => {
+    if (quantity > 0) {
+      dispatch({
+        type: "ADD_CURRENT_BOOK_TO_THE_CART",
+        payload: { selectedBook: currentBook, selectedBookQty: quantity },
+      });
+    } else {
+      alert("Quantity must be greater than 0");
+    }
+  };
 
   useEffect(() => {
     dispatch({
@@ -42,9 +60,7 @@ const Book = ({ match }) => {
   }, []);
 
   if (responseErrorCode) {
-    return (
-      <ErrorComponent/>
-    );
+    return <ErrorComponent />;
   }
 
   if (!loading) {
@@ -118,6 +134,7 @@ const Book = ({ match }) => {
                     width="7.2rem"
                     max={currentBook.availableQuantity}
                     style={{ background: "red" }}
+                    onChange={(value) => handleQuantity(value)}
                   />
                 </div>
               </div>
@@ -134,6 +151,7 @@ const Book = ({ match }) => {
                   height: "auto",
                   width: "auto",
                 }}
+                onClick={handleAddtoCart}
               >
                 <FontAwesomeIcon icon={faShoppingCart} /> Add to Cart
               </button>

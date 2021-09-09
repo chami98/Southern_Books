@@ -38,6 +38,7 @@ const SideBar = () => {
         {categories.map((category) => (
           <li key={category.id}>
             <a
+              style={{fontFamily:"Quicksand"}}
               href="#"
               className={`nav-link text-white ${
                 category.id === selectedCategoryId

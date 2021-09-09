@@ -29,7 +29,7 @@ const Book = ({ match }) => {
     setQuantity(value);
   };
 
-  const handleAddtoCart = () => {
+   const handleAddtoCart = () => {
     if (quantity > 0 && quantity <= currentBook.availableQuantity) {
       dispatch({
         type: "ADD_CURRENT_BOOK_TO_THE_CART",

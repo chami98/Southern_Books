@@ -38,6 +38,20 @@ export const bookReducer = (state = _initState, action) => {
       };
     }
 
+    case "ADD_CURRENT_BOOK_TO_THE_CART": {
+
+
+      console.log('state.currentBook', state.currentBook);
+
+      return {
+        ...state,
+        currentBook : {
+          ...state.currentBook,
+          availableQuantity : state.currentBook.availableQuantity - action.payload.selectedBookQty,
+        }
+      };
+    }
+
     default:
       return state;
   }

@@ -17,6 +17,7 @@ function App() {
         <Route path="/notFound" component={ErrorComponent} />
 
 
+        <Redirect from="/" exact to="/home" />
         <Redirect exact to="/notFound" />
       </Switch>
     </div>

@@ -16,6 +16,7 @@ export const cartReducer = (state = _initState, action) => {
       return {
         ...state,
         selectedBooks: selectedBooks,
+        
       };
     }
 

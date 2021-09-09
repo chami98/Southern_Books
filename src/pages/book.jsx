@@ -19,20 +19,24 @@ const Book = ({ match }) => {
   );
 
   const [quantity, setQuantity] = useState(0);
-  console.log(quantity);
+
+  useEffect(() => {
+    setQuantity(1);
+  }, [currentBook.availableQuantity]);
 
   const handleQuantity = (value) => {
+    console.log("handleQuantity")
     setQuantity(value);
   };
 
   const handleAddtoCart = () => {
-    if (quantity > 0) {
+    if (quantity > 0 && quantity <= currentBook.availableQuantity) {
       dispatch({
         type: "ADD_CURRENT_BOOK_TO_THE_CART",
         payload: { selectedBook: currentBook, selectedBookQty: quantity },
       });
     } else {
-      alert("Quantity must be greater than 0");
+      alert(`Quantity must be greater than available quantity`);
     }
   };
 
@@ -129,6 +133,7 @@ const Book = ({ match }) => {
                 </div>
                 <div style={{ float: "left" }}>
                   <QuantityPicker
+                    value={quantity}
                     smooth
                     min={1}
                     width="7.2rem"

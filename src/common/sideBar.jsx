@@ -1,22 +1,21 @@
 import React from "react";
 import "./styles/sideBar.css";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
+import { faBookReader, fabookReader } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SideBar = () => {
-
   const categories = useSelector((s) => s.app.categories);
   const selectedCategoryId = useSelector((s) => s.app.selectedCategoryId);
 
-  const dispath = useDispatch()
+  const dispath = useDispatch();
 
   const onChangeCategoryId = (id) => {
-    dispath(
-      {
-        type : "SET_CATEGORY_ID",
-        payload : id
-      }
-    )
-  }
+    dispath({
+      type: "SET_CATEGORY_ID",
+      payload: id,
+    });
+  };
 
   return (
     <div
@@ -28,7 +27,14 @@ const SideBar = () => {
         className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
         style={{ margin: "0 auto", fontSize: "22px" }}
       >
-        <span>Categories</span>
+        <span>
+          {" "}
+          <FontAwesomeIcon
+            icon={faBookReader}
+            style={{ marginRight: "3px" }}
+          />{" "}
+          Categories
+        </span>
       </a>
       <hr />
       <ul
@@ -38,12 +44,10 @@ const SideBar = () => {
         {categories.map((category) => (
           <li key={category.id}>
             <a
-              style={{fontFamily:"Quicksand"}}
+              style={{ fontFamily: "Quicksand" }}
               href="#"
               className={`nav-link text-white ${
-                category.id === selectedCategoryId
-                  ? "active selected"
-                  : ""
+                category.id === selectedCategoryId ? "active selected" : ""
               }`}
               onClick={() => {
                 onChangeCategoryId(category.id);
@@ -57,11 +61,9 @@ const SideBar = () => {
       <hr />
     </div>
   );
-}
- 
+};
+
 export default SideBar;
-
-
 
 // const SideBar = () => {
 //   const [selectedCategoryId, setselectedCategoryId] = useState(

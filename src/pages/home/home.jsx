@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <Layout>
-        <h2 style={{ padding: "20px" , fontFamily: "Bebas Neue" , fontSize: "40px"}}> {selectedCategoryName}</h2>
+        <h2 style={{ padding: "22px" , fontFamily: "Quicksand" , fontSize: "33px"}}> {selectedCategoryName}</h2>
         <BookTilesSection />
     </Layout>
   );

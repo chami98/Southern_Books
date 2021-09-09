@@ -25,11 +25,11 @@ const Book = ({ match }) => {
   }, [currentBook.availableQuantity]);
 
   const handleQuantity = (value) => {
-    console.log("handleQuantity")
+    console.log("handleQuantity");
     setQuantity(value);
   };
 
-   const handleAddtoCart = () => {
+  const handleAddtoCart = () => {
     if (quantity > 0 && quantity <= currentBook.availableQuantity) {
       dispatch({
         type: "ADD_CURRENT_BOOK_TO_THE_CART",
@@ -117,14 +117,27 @@ const Book = ({ match }) => {
               />
               <p>Rating:{currentBook.rating}</p>
             </div>
-            <div className="col-5" style={{ paddingLeft: "120px" }}>
+            <div
+              className="col-5"
+              style={{ paddingLeft: "120px", fontFamily: "Quicksand" }}
+            >
               <h1>{currentBook.name}</h1>
-              <p>ISBN: {currentBook.isbn}</p>
-              <h5>Rs.{currentBook.price}</h5>
               <h5>Author: {currentBook.authors}</h5>
-              <h5>Pages: {currentBook.pages}</h5>
-              <h5>Dimensions: {currentBook.dimensions}</h5>
-              <h5>Avaliable Count: {currentBook.availableQuantity} </h5>
+              <h5>
+                <span class="badge rounded-pill bg-success">
+                  {" "}
+                  {`Rs. ${currentBook.price}`}
+                </span>
+              </h5>
+              <h6>ISBN: {currentBook.isbn}</h6>
+
+              <h6>Pages: {currentBook.pages}</h6>
+              <h6>Dimensions: {currentBook.dimensions}</h6>
+              <h6>
+                <span class="badge rounded-pill bg-warning text-dark">
+                  {`${currentBook.availableQuantity} Avaliable`}{" "}
+                </span>{" "}
+              </h6>
               <div>
                 <div style={{ float: "left" }}>
                   <h5 style={{ marginTop: "15px", marginRight: "20px" }}>

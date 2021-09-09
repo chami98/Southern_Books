@@ -3,7 +3,7 @@ import { Route, Redirect, Switch } from "react-router";
 import Home from "./pages/home/home";
 import Faq from "./pages/faq/faq";
 import About from "./pages/about/about";
-import Book from './pages/book';
+import Book from "./pages/book/book";
 import ErrorComponent from "./pages/errorComponent/errorComponent";
 
 function App() {

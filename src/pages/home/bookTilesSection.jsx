@@ -22,12 +22,12 @@ const BookTilesSection = () => {
     });
 
     axios
-      .get(BASE_URL +  "/books", {
-        params : {
-          categoryId : selectedCategoryId,
-          searchString : searchString
-        }
-      } )
+      .get(BASE_URL + "/books", {
+        params: {
+          categoryId: selectedCategoryId,
+          searchString: searchString,
+        },
+      })
       .then((result) => {
         // Loading Finished
         dispatch({
@@ -50,7 +50,7 @@ const BookTilesSection = () => {
           type: "BOOKS_LOADING_FINISHED",
         });
       });
-  }, [selectedCategoryId , searchString]);
+  }, [selectedCategoryId, searchString]);
 
   const booksLoading = useSelector((s) => s.app.booksLoading);
 
@@ -79,12 +79,7 @@ const BookTilesSection = () => {
         <div className="row">
           {books.map((book) => (
             <div key={book.id} className="col-lg-3 col-md-4 col-sm-6">
-              <BookTile
-                name={book.name}
-                id={book.id}
-                price={book.price}
-                imageUrl={book.imageUrl}
-              />
+              <BookTile book={book} />
             </div>
           ))}
         </div>
@@ -100,4 +95,3 @@ const randFunc = () => {
     message: "Something went wrong",
   };
 };
-

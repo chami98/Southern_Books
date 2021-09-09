@@ -28,9 +28,9 @@ const Header = () => {
             <svg className="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
           </a> */}
 
-          <ul className="nav col-4 me-sm-auto justify-content-center mb-md-0">
+          <ul className="nav col-4 me-sm-auto justify-content-center mb-md-0" style= {{fontFamily:"Roboto Mono"}}>
             <li>
-              <Link to="/home" className="nav-link px-1 text-secondary">
+              <Link to="/home" className="nav-link px-1 text-white ">
                 Home
               </Link>
             </li>

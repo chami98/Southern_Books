@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { BASE_URL } from "./../constants";
+import { BASE_URL } from "../../constants";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Layout from "./../common/layout";
+import Layout from "../../common/layout";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { QuantityPicker } from "react-qty-picker";
 import { Link } from "react-router-dom";
-import ErrorComponent from "./errorComponent/errorComponent";
+import ErrorComponent from "../errorComponent/errorComponent";
 
 const Book = ({ match }) => {
   const dispatch = useDispatch();
@@ -82,7 +82,7 @@ const Book = ({ match }) => {
         >
           <div className="row">
             <nav aria-label="breadcrumb" style={{ fontSize: "20px" }}>
-              <ol className="breadcrumb">
+              <ol className="breadcrumb" style={{ fontFamily: "Barlow" }}>
                 <li className="breadcrumb-item">
                   <Link
                     to="/home"
@@ -115,7 +115,6 @@ const Book = ({ match }) => {
                 alt=""
                 style={{ height: "auto", width: "100%" }}
               />
-              <p>Rating:{currentBook.rating}</p>
             </div>
             <div
               className="col-5"
@@ -133,11 +132,8 @@ const Book = ({ match }) => {
 
               <h6>Pages: {currentBook.pages}</h6>
               <h6>Dimensions: {currentBook.dimensions}</h6>
-              <h6>
-                <span class="badge rounded-pill bg-warning text-dark">
-                  {`${currentBook.availableQuantity} Avaliable`}{" "}
-                </span>{" "}
-              </h6>
+              <h6>Rating:{currentBook.rating}</h6>
+
               <div>
                 <div style={{ float: "left" }}>
                   <h5 style={{ marginTop: "15px", marginRight: "20px" }}>
@@ -154,6 +150,11 @@ const Book = ({ match }) => {
                     style={{ background: "red" }}
                     onChange={(value) => handleQuantity(value)}
                   />
+                  <h6 style={{ marginTop: "5px", marginLeft: "17px" }}>
+                    <span class="badge rounded-pill bg-warning text-dark">
+                      {`${currentBook.availableQuantity} Avaliable`}{" "}
+                    </span>{" "}
+                  </h6>
                 </div>
               </div>
             </div>

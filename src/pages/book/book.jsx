@@ -150,9 +150,16 @@ const Book = ({ match }) => {
                     style={{ background: "red" }}
                     onChange={(value) => handleQuantity(value)}
                   />
-                  <h6 style={{ marginTop: "5px", marginLeft: "17px" }}>
-                    <span class="badge rounded-pill bg-warning text-dark">
-                      {`${currentBook.availableQuantity} Avaliable`}{" "}
+                  <h6
+                    style={{
+                      marginTop: "5px",
+                      marginLeft: "15px",
+                      fontSize: "18px",
+                      fontFamily: "Quicksand",
+                    }}
+                  >
+                    <span class="badge rounded-pill bg-warning text-dark ">
+                      {`${currentBook.availableQuantity} Available`}{" "}
                     </span>{" "}
                   </h6>
                 </div>

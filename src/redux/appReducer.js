@@ -78,11 +78,13 @@ export const appReducer = (state = _initState, action) => {
         }
       });
 
-      booksCopy[index] = {
-        ...booksCopy[index],
-        availableQuantity:
-          booksCopy[index].availableQuantity - action.payload.selectedBookQty,
-      };
+      if (index != -1) {
+        booksCopy[index] = {
+          ...booksCopy[index],
+          availableQuantity:
+            booksCopy[index].availableQuantity - action.payload.selectedBookQty,
+        };
+      }
 
       return {
         ...state,

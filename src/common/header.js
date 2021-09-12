@@ -1,13 +1,82 @@
+import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useHistory } from "react-router";
+import Popper from "popper.js";
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+} from "firebase/auth";
+import { initializeFirebase } from "./../firebase/init";
+
+initializeFirebase();
+const provider = new GoogleAuthProvider();
+const auth = getAuth();
+
+const handleLogin = () => {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      console.log("Successfully Logged", result);
+      // ...
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      console.log("Error Login", error);
+
+      // ...
+    });
+};
 
 
 const Header = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const selectedBooks = useSelector((state) => state.cart.selectedBooks);
+  const [displayName, setDN] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
 
+  const [displayLogout, setdisplayLogout] = useState(false);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      const uid = user.uid;
+      console.log("user >>> iside header ", user);
+      setDN(user.displayName);
+      setdisplayLogout(true);
+      setPhotoUrl(user.photoURL)
+      // ...
+    } else {
+      // User is signed out
+      setdisplayLogout(false);
+      console.log("No user");
+      setDN("");
+    }
+  });
+
+  const handleLogout = () => {
+    setdisplayLogout(false);
+    auth.signOut();
+    
+  };
+  
 
   const onChangeHandler = (value) => {
     dispatch({
@@ -15,7 +84,6 @@ const Header = () => {
       payload: value,
     });
   };
-
 
   return (
     <header
@@ -28,7 +96,10 @@ const Header = () => {
             <svg className="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
           </a> */}
 
-          <ul className="nav col-4 me-sm-auto justify-content-center mb-md-0" style= {{fontFamily:"Roboto Mono"}}>
+          <ul
+            className="nav col-4 me-sm-auto justify-content-center mb-md-0"
+            style={{ fontFamily: "Roboto Mono" }}
+          >
             <li>
               <Link to="/home" className="nav-link px-1 text-white ">
                 Home
@@ -58,12 +129,27 @@ const Header = () => {
           </form>
 
           <div className="text-end">
-            <button type="button" className="btn btn-sm btn-outline-light me-2">
+            <button
+              type="button"
+              className="btn btn-sm btn-outline-warning me-2"
+              onClick={() => handleLogin()}
+            >
               Login
             </button>
-            <button type="button" className="btn btn-sm btn-warning">
-              Sign-up
-            </button>
+  
+            {displayLogout ? (
+
+
+              <button
+                type="button"
+                className="btn btn-sm btn-link me-2"
+                onClick={handleLogout}
+                style={{textDecoration: "none", color: "white", }}
+              >
+                <img src={photoUrl} width="30" style={{marginRight:"5px"}} /> 
+                Log Out {displayName}
+              </button>
+            ) : null}
           </div>
           <div>
             <Link to="/faq" className="nav-link px-1 text-white">

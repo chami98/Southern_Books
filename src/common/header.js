@@ -147,37 +147,40 @@ const Header = () => {
                         padding: "4px 6px",
                         marginTop: 4,
                         borderRadius: 12,
-                        minWidth: 240,
+                        minWidth: 230,
                       }}
                     >
-                      <div style={{ padding: "18px 0", paddingBottom: "19px" }}>
+                      <div style={{ paddingTop: "18px" }}>
                         {" "}
                         <h6
                           style={{
-                            textAlign: "center",
-                            fontFamily: "Quicksand",
-                            fontSize: "15.5px",
+                            textAlign: "left",
+                            fontFamily: "Bebas Neue",
+                            fontSize: "20.5px",
+                            color:"white",
+                            marginLeft:"12.5px"
+                            
                           }}
                         >
-                          <i class="fas fa-user-check" style={{marginRight:"6px"}}></i> Choose a Sign in
+                          <i class="fas fa-user-check" style={{marginRight:"6px" , fontSize:"17px"}}></i> Choose a Sign in
                           Method{" "}
                         </h6>
                       </div>
                       <div
                         style={{
                           padding: "5px 0",
-                          // borderBottom: "1px solid white",
+                          borderBottom: "1px solid white",
                         }}
                       >
                         <button
                           type="button"
-                          className="btn btn-sm btn-danger me-2"
+                          className="btn btn-sm btn-link me-2"
                           onClick={() => handleLogin()}
                           style={{
                             textDecoration: "none",
                             color: "white",
                             width: "96%",
-                            fontFamily: "Quicksand",
+                            fontFamily: "Source Sans Pro",
                             fontSize: "15px",
                             textAlign: "left",
                             marginLeft: "5px",
@@ -190,7 +193,7 @@ const Header = () => {
                           Sign in with Google
                         </button>
                       </div>
-                      <div style={{ paddingBottom: "4px " }}>
+                      {/* <div style={{ paddingBottom: "4px " }}>
                         {" "}
                         <button
                           type="button"
@@ -212,7 +215,7 @@ const Header = () => {
                           ></i>
                           Sign in with Twitter
                         </button>
-                      </div>
+                      </div> */}
 
                       <div
                         style={{
@@ -222,13 +225,13 @@ const Header = () => {
                       >
                         <button
                           type="button"
-                          className="btn btn-sm btn-primary me-2"
+                          className="btn btn-sm btn-link me-2"
                           // onClick={() => handleLogin()}
                           style={{
                             textDecoration: "none",
                             color: "white",
                             width: "96%",
-                            fontFamily: "Quicksand",
+                            fontFamily: "Source Sans Pro",
                             fontSize: "15px",
                             textAlign: "left",
                             marginLeft: "5px",

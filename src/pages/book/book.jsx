@@ -133,6 +133,7 @@ const Book = ({ match }) => {
               <h6>Pages: {currentBook.pages}</h6>
               <h6>Dimensions: {currentBook.dimensions}</h6>
               <h6>Rating:{currentBook.rating}</h6>
+              <p >Description: <p style={{fontStyle:"italic"}}>{currentBook.description }</p></p>
 
               <div>
                 <div style={{ float: "left" }}>

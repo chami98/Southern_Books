@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from './redux/store';
 
 
-const store = configureStore();
+export const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>

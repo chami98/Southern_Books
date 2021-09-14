@@ -13,8 +13,11 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
 } from "firebase/auth";
+
 import { initializeFirebase } from "./../firebase/init";
 import { Popover } from "react-tiny-popover";
+import { store } from "./../index";
+import Admin from "./../pages/admin/admin";
 
 initializeFirebase();
 const provider = new GoogleAuthProvider();
@@ -45,36 +48,60 @@ const handleLogin = () => {
     });
 };
 
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    console.log("user >>> iside header ", user);
+
+    auth.currentUser.getIdTokenResult().then((idTokenResult) => {
+      console.log("idTokenResult.claims", idTokenResult.claims);
+
+      const userDetails = {
+        user: user,
+        claims: idTokenResult.claims,
+      };
+
+      store.dispatch({
+        type: "USER_SIGN_IN",
+        payload: userDetails,
+      });
+    });
+    // ...
+  } else {
+    // User is signed out
+    // setloggedIn(false);
+    store.dispatch({
+      type: "USER_SIGN_OUT",
+    });
+    console.log("No user");
+    //setDN("");
+  }
+});
+
 const Header = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const selectedBooks = useSelector((state) => state.cart.selectedBooks);
-  const [displayName, setDN] = useState("");
-  const [photoUrl, setPhotoUrl] = useState("");
+  const user = useSelector((state) => state.user.userDetails);
+  const userClaims = useSelector((state) => state.user.userDetails.claims);
+
+  const loggedIn = useSelector((state) => state.user.loggedIn);
+
+  console.log("user", user);
+
+  const isAdmin = userClaims.admin ? true : false;
+  const displayName = user.user.displayName;
+  const photoUrl = user.user.photoURL;
   const [profilePopoverOpen, setProfilePopoverOpen] = useState(false);
 
-  const [loggedIn, setloggedIn] = useState(false);
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      console.log("user >>> iside header ", user);
-      setDN(user.displayName);
-      setloggedIn(true);
-      setPhotoUrl(user.photoURL);
-      // ...
-    } else {
-      // User is signed out
-      setloggedIn(false);
-      console.log("No user");
-      setDN("");
-    }
-  });
+  // const [loggedIn, setloggedIn] = useState(false);
 
   const handleLogout = () => {
-    setloggedIn(false);
+    // setloggedIn(false);
+
+    history.push("/home");
     auth.signOut();
   };
 
@@ -102,33 +129,58 @@ const Header = () => {
             className="nav col-4 me-sm-auto justify-content-center mb-md-0"
             style={{ fontFamily: "Roboto Mono" }}
           >
-            <li>
-              <Link to="/home" className="nav-link px-1 text-white ">
-                Home
-              </Link>
-            </li>
+            {isAdmin ? (
+              <>
+                <li>
+                  <Link to="/orders" className="nav-link px-1 text-white ">
+                    Orders
+                  </Link>
+                </li>
 
-            <li>
-              <Link to="/faq" className="nav-link px-1 text-white">
-                FAQs
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" className="nav-link px-1 text-white">
-                About
-              </Link>
-            </li>
+                <li>
+                  <Link to="/users" className="nav-link px-1 text-white">
+                    Users
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/add" className="nav-link px-1 text-white">
+                    Add
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/home" className="nav-link px-1 text-white ">
+                    Home
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to="/faq" className="nav-link px-1 text-white">
+                    FAQs
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="nav-link px-1 text-white">
+                    About
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
 
-          <form className="col-4 mb-sm-0 me-sm-3">
-            <input
-              type="search"
-              className="form-control form-control-sm form-control-dark"
-              placeholder="Search..."
-              aria-label="Search"
-              onChange={(e) => onChangeHandler(e.target.value)}
-            />
-          </form>
+          {!isAdmin ? (
+            <form className="col-4 mb-sm-0 me-sm-3">
+              <input
+                type="search"
+                className="form-control form-control-sm form-control-dark"
+                placeholder="Search..."
+                aria-label="Search"
+                onChange={(e) => onChangeHandler(e.target.value)}
+              />
+            </form>
+          ) : null}
 
           <div className="text-end">
             {!loggedIn ? (
@@ -157,13 +209,15 @@ const Header = () => {
                             textAlign: "left",
                             fontFamily: "Bebas Neue",
                             fontSize: "20.5px",
-                            color:"white",
-                            marginLeft:"12.5px"
-                            
+                            color: "white",
+                            marginLeft: "12.5px",
                           }}
                         >
-                          <i class="fas fa-user-check" style={{marginRight:"6px" , fontSize:"17px"}}></i> Choose a Sign in
-                          Method{" "}
+                          <i
+                            class="fas fa-user-check"
+                            style={{ marginRight: "6px", fontSize: "17px" }}
+                          ></i>{" "}
+                          Choose a Sign in Method{" "}
                         </h6>
                       </div>
                       <div
@@ -326,21 +380,24 @@ const Header = () => {
               </>
             ) : null}
           </div>
-          <div>
-            <Link to="/faq" className="nav-link px-1 text-white">
-              <FontAwesomeIcon
-                icon={faShoppingCart}
-                style={{
-                  marginLeft: "20px",
-                  fontSize: "21px",
-                  marginBottom: "0px",
-                }}
-              />{" "}
-              <span class="position-absolute top-1 start-70 translate-middle badge rounded-pill bg-danger">
-                {selectedBooks.length}
-              </span>
-            </Link>
-          </div>
+
+          {!isAdmin ? (
+            <div>
+              <Link to="/faq" className="nav-link px-1 text-white">
+                <FontAwesomeIcon
+                  icon={faShoppingCart}
+                  style={{
+                    marginLeft: "20px",
+                    fontSize: "21px",
+                    marginBottom: "0px",
+                  }}
+                />{" "}
+                <span class="position-absolute top-1 start-70 translate-middle badge rounded-pill bg-danger">
+                  {selectedBooks.length}
+                </span>
+              </Link>
+            </div>
+          ) : null}
         </div>
       </div>
     </header>

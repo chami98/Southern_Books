@@ -12,14 +12,16 @@ const Cart = () => {
 
   return (
     <div>
-      <h4 style={{ textAlign: "center" , marginTop:"8px" , marginBottom:"12px"}}>
+      <h4
+        style={{ textAlign: "center", marginTop: "8px", marginBottom: "12px" }}
+      >
         <i
           class="fas fa-shopping-cart"
           style={{ fontSize: "18px", marginRight: "5px" }}
         ></i>
         Shopping Cart{" "}
       </h4>
-      <table class="table" style={{ color: "white" }}>
+      <table class="table" style={{ color: "white", marginBottom: "4px" }}>
         <thead>
           <tr>
             <th scope="col">Name</th>
@@ -60,6 +62,7 @@ const Cart = () => {
           </tr>
         </tbody>
       </table>
+      
     </div>
   );
 };

@@ -375,7 +375,13 @@ const Header = () => {
                         </>
                       ) : null}
 
-                      <div style={{ padding: "5px 0", paddingTop: "8px" , marginTop:"0px"}}>
+                      <div
+                        style={{
+                          padding: "5px 0",
+                          paddingTop: "8px",
+                          marginTop: "0px",
+                        }}
+                      >
                         {" "}
                         <button
                           style={{
@@ -434,7 +440,26 @@ const Header = () => {
                         fontFamily: "Source Sans Pro",
                       }}
                     >
-                      <Cart />
+                      {selectedBooks.length > 0 ? (
+                        <Cart />
+                      ) : (
+                        <div style={{ textAlign: "center" , marginBottom:"2px" }}>
+                          <img
+                            src="https://firebasestorage.googleapis.com/v0/b/southernbooks-b34af.appspot.com/o/emty%20cart.png?alt=media&token=767a37a6-bfdf-47ea-894d-c3b6f542058a"
+                            style={{ width: "130px", marginBottom: "8px" }}
+                          />
+
+                          <h5>
+                            <span class="badge rounded-pill bg-danger">
+                              Unfortunately, Your Cart is Empty
+                            </span>
+                          </h5>
+                          {/* <h6><span class="badge rounded-pill bg-success">Please add something in your Cart</span></h6> */}
+                          <h6 style={{ fontSize: "13px" }}>
+                            Please add something in your Cart
+                          </h6>
+                        </div>
+                      )}
                     </div>
                   )}
                 >

@@ -154,7 +154,7 @@ const Header = () => {
                   <Link
                     to="/home"
                     className="nav-link px-1 text-white "
-                    style={{ fontFamily: "Courgette", fontSize: "16.5px" }}
+                    style={{ fontFamily: "Courgette", fontSize: "16.7px" }}
                   >
                     <img
                       src="https://firebasestorage.googleapis.com/v0/b/southernbooks-b34af.appspot.com/o/southern%20books%20logo.png?alt=media&token=2e03010c-09ba-4fb8-8fbb-ef502ca854e3"
@@ -206,7 +206,7 @@ const Header = () => {
               <>
                 <Popover
                   isOpen={profilePopoverOpen}
-                  positions={["bottom"]} // preferred positions by priority
+                  positions={["bottom", "right"]} // preferred positions by priority
                   onClickOutside={() => setProfilePopoverOpen(false)}
                   content={
                     <div
@@ -216,8 +216,8 @@ const Header = () => {
                         color: "#fff",
                         float: "left",
                         padding: "4px 6px",
-                        marginTop: 4,
-                        borderRadius: 12,
+                        marginTop: 2,
+                        borderRadius: 2,
                         minWidth: 230,
                       }}
                     >
@@ -347,9 +347,9 @@ const Header = () => {
                         color: "#fff",
                         float: "left",
                         padding: "8px 16px",
-                        marginTop: 5,
+                        marginTop: 2,
                         borderRadius: 3,
-                        minWidth: 150,
+                        minWidth: 230,
                         fontFamily: "Source Sans Pro",
                       }}
                     >
@@ -375,7 +375,7 @@ const Header = () => {
                         </>
                       ) : null}
 
-                      <div style={{ padding: "5px 0", paddingTop: "10px" }}>
+                      <div style={{ padding: "5px 0", paddingTop: "8px" , marginTop:"0px"}}>
                         {" "}
                         <button
                           style={{

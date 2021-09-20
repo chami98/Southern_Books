@@ -44,7 +44,7 @@ const SideBar = () => {
         {categories.map((category) => (
           <li key={category.id}>
             <a
-              style={{ fontFamily: "Quicksand" }}
+              style={{ fontFamily: "Poppins" }}
               href="#"
               className={`nav-link text-white ${
                 category.id === selectedCategoryId ? "active selected" : ""
@@ -53,6 +53,10 @@ const SideBar = () => {
                 onChangeCategoryId(category.id);
               }}
             >
+              <i
+                class="fas fa-angle-right"
+                style={{ marginRight: "6px", fontSize: "13px" }}
+              ></i>
               {category.name}
             </a>
           </li>

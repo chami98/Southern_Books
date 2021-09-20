@@ -17,8 +17,7 @@ import {
 import { initializeFirebase } from "./../firebase/init";
 import { Popover } from "react-tiny-popover";
 import { store } from "./../index";
-import Admin from "./../pages/admin/admin";
-
+import Cart from "./cart";
 initializeFirebase();
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
@@ -95,6 +94,7 @@ const Header = () => {
   const displayName = user.user.displayName;
   const photoUrl = user.user.photoURL;
   const [profilePopoverOpen, setProfilePopoverOpen] = useState(false);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   // const [loggedIn, setloggedIn] = useState(false);
 
@@ -127,7 +127,7 @@ const Header = () => {
 
           <ul
             className="nav col-4 me-sm-auto justify-content-center mb-md-0"
-            style={{ fontFamily: "Roboto Mono" }}
+            style={{ fontFamily: "Poppins", fontSize: "13.5px" }}
           >
             {isAdmin ? (
               <>
@@ -150,7 +150,26 @@ const Header = () => {
               </>
             ) : (
               <>
-                <li>
+                <li style={{ marginRight: "0px", marginLeft: "122px" }}>
+                  <Link
+                    to="/home"
+                    className="nav-link px-1 text-white "
+                    style={{ fontFamily: "Courgette", fontSize: "16.5px" }}
+                  >
+                    <img
+                      src="https://firebasestorage.googleapis.com/v0/b/southernbooks-b34af.appspot.com/o/southern%20books%20logo.png?alt=media&token=2e03010c-09ba-4fb8-8fbb-ef502ca854e3"
+                      style={{
+                        width: "26px",
+                        padding: "0px",
+                        marginBottom: "3px",
+                        marginRight: "0px",
+                      }}
+                    />
+                    SouthernBooks
+                  </Link>
+                </li>
+
+                <li style={{ marginLeft: "25px" }}>
                   <Link to="/home" className="nav-link px-1 text-white ">
                     Home
                   </Link>
@@ -305,6 +324,7 @@ const Header = () => {
                     type="button"
                     className="btn btn-sm btn-warning "
                     onClick={() => setProfilePopoverOpen(!profilePopoverOpen)}
+                    style={{ fontFamily: "Poppins" }}
                   >
                     Login
                   </button>
@@ -330,28 +350,38 @@ const Header = () => {
                         marginTop: 5,
                         borderRadius: 3,
                         minWidth: 150,
+                        fontFamily: "Source Sans Pro",
                       }}
                     >
-                      <div
-                        style={{
-                          padding: "5px 0",
-                          borderBottom: "1px solid #ddd",
-                        }}
-                      >
-                        Profile
-                      </div>
-                      <div
-                        style={{
-                          padding: "5px 0",
-                          borderBottom: "1px solid #ddd",
-                        }}
-                      >
-                        My Orders
-                      </div>
+                      {!isAdmin ? (
+                        <>
+                          {" "}
+                          <div
+                            style={{
+                              padding: "5px 0",
+                              borderBottom: "1px solid #ddd",
+                            }}
+                          >
+                            Profile
+                          </div>
+                          <div
+                            style={{
+                              padding: "5px 0",
+                              borderBottom: "1px solid #ddd",
+                            }}
+                          >
+                            My Orders
+                          </div>{" "}
+                        </>
+                      ) : null}
+
                       <div style={{ padding: "5px 0", paddingTop: "10px" }}>
                         {" "}
                         <button
-                          style={{ width: "100%" }}
+                          style={{
+                            width: "100%",
+                            fontFamily: "Source Sans Pro",
+                          }}
                           type="button"
                           className="btn btn-sm btn-danger"
                           onClick={() => handleLogout()}
@@ -383,18 +413,45 @@ const Header = () => {
 
           {!isAdmin ? (
             <div>
-              <Link to="/faq" className="nav-link px-1 text-white">
-                <FontAwesomeIcon
-                  icon={faShoppingCart}
-                  style={{
-                    marginLeft: "20px",
-                    fontSize: "21px",
-                    marginBottom: "0px",
-                  }}
-                />{" "}
-                <span class="position-absolute top-1 start-70 translate-middle badge rounded-pill bg-danger">
-                  {selectedBooks.length}
-                </span>
+              <Link to="#" className="nav-link px-1 text-white">
+                <Popover
+                  isOpen={isPopoverOpen}
+                  positions={["bottom"]} // if you'd like, you can limit the positions
+                  onClickOutside={() => setIsPopoverOpen(false)} // handle click events outside of the popover/target here!
+                  content={(
+                    { position, nudgedLeft, nudgedTop } // you can also provide a render function that injects some useful stuff!
+                  ) => (
+                    <div
+                      style={{
+                        width: "100%",
+                        background: "#212529",
+                        color: "#fff",
+                        float: "left",
+                        padding: "8px 16px",
+                        marginTop: 5,
+                        borderRadius: 3,
+                        minWidth: 150,
+                        fontFamily: "Source Sans Pro",
+                      }}
+                    >
+                      <Cart />
+                    </div>
+                  )}
+                >
+                  <div onClick={() => setIsPopoverOpen(!isPopoverOpen)}>
+                    <FontAwesomeIcon
+                      icon={faShoppingCart}
+                      style={{
+                        marginLeft: "20px",
+                        fontSize: "21px",
+                        marginBottom: "0px",
+                      }}
+                    />
+                    <span class="position-absolute top-1 start-70 translate-middle badge rounded-pill bg-danger">
+                      {selectedBooks.length}
+                    </span>
+                  </div>
+                </Popover>
               </Link>
             </div>
           ) : null}

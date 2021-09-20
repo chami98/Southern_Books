@@ -73,7 +73,7 @@ const Book = ({ match }) => {
         <div
           className="container"
           style={{
-            marginTop: "100px",
+            marginTop: "65px",
             textAlign: "left",
             marginRight: "0px",
             marginLeft: "100px",

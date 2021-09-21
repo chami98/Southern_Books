@@ -7,6 +7,7 @@ import Book from "./pages/book/book";
 import ErrorComponent from "./pages/errorComponent/errorComponent";
 import Admin from "./pages/admin/admin";
 import { useSelector } from "react-redux";
+import Checkout from './pages/checkout/checkout';
 
 function App() {
   // const user = {
@@ -40,6 +41,7 @@ function App() {
         <Route path="/home" component={Home} />
         <Route path="/faq" component={Faq} />
         <Route path="/about" component={About} />
+        <Route path="/checkout" component={Checkout} />
         <Route path="/books/:id" component={Book} />
         <Route path="/notFound" component={ErrorComponent} />
 

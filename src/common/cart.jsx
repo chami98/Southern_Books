@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const selectedBooks = useSelector((state) => state.cart.selectedBooks);
@@ -46,9 +47,12 @@ const Cart = () => {
                 style={{ fontSize: "16px", marginRight: "5px" }}
               ></i>
               {`Total price Rs. ${totalPrice}/=`}{" "}
-              <button
-                type="button"
-                class="btn btn-success "
+              <Link
+                to="/checkout"
+                class="btn btn-success  "
+                tabindex="-1"
+                role="button"
+                aria-disabled="true"
                 style={{
                   width: "100%",
                   marginTop: "10px",
@@ -57,12 +61,11 @@ const Cart = () => {
                 }}
               >
                 CHECKOUT
-              </button>
+              </Link>
             </td>
           </tr>
         </tbody>
       </table>
-      
     </div>
   );
 };

@@ -8,12 +8,12 @@ export const cartReducer = (state = _initState, action) => {
 
       
       const index = state.selectedBooks.findIndex((book) => {
-        return book.id == action.payload.selectedBook.id;
+        return book.id === action.payload.selectedBook.id;
       });
 
       let selectedBooksCopy = [...state.selectedBooks];
 
-      if (index != -1) {
+      if (index !== -1) {
         selectedBooksCopy[index] = {
           ...selectedBooksCopy[index],
           selectedBookQty: selectedBooksCopy[index].selectedBookQty + action.payload.selectedBookQty,

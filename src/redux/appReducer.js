@@ -78,7 +78,7 @@ export const appReducer = (state = _initState, action) => {
         }
       });
 
-      if (index != -1) {
+      if (index !== -1) {
         booksCopy[index] = {
           ...booksCopy[index],
           availableQuantity:

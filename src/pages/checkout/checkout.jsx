@@ -12,9 +12,12 @@ const Checkout = () => {
   return (
     <Layout hideSideBar>
       <h2 style={{ marginTop: "80px" }}>Checkout</h2>
-      <div className="container">
+      <div className="container" style={{ marginTop: "30px" }}>
         <div className="row">
-          <div className="col-7">
+          <div
+            className="col-7"
+            style={{ paddingLeft: "30px", paddingRight: "30px" }}
+          >
             <p style={{ textAlign: "left" }}> CUSTOMER INFORMATION</p>
             <div className="row">
               <div className="col">
@@ -163,23 +166,26 @@ const Checkout = () => {
             </div>
           </div>
           <div className="col-5">
+            <p style={{ textAlign: "center" }}>YOUR ORDER SUMMARY</p>
+
             <div
               style={{
-                border: "0px solid red",
+                border: "2px solid #bbb",
                 padding: "10px",
-                background: "#fff",
+                marginTop: "0px",
               }}
             >
-              <h5>Your Order Summary</h5>
               <table
-                class="table  "
+                class="table table-borderless  "
                 style={{ marginBottom: "4px", textAlign: "left" }}
               >
                 <thead>
                   <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Qty</th>
-                    <th scope="col">Price</th>
+                    <th scope="col" style={{ textAlign: "right" }}>
+                      Price
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -187,29 +193,25 @@ const Checkout = () => {
                     <tr>
                       <td> {book.name}</td>
                       <td>{book.selectedBookQty}</td>
-                      <td>{`Rs. ${book.selectedBookQty * book.price}`}</td>
+                      <td align="right">{`Rs. ${(
+                        book.selectedBookQty * book.price
+                      ).toFixed(2)}`}</td>
                     </tr>
                   ))}
+                  <tr>
+                    <td colSpan="3"></td>
+                  </tr>
+                  <tr style={{ borderTop: "2px dashed #aaa" }}>
+                    <td colSpan="2">Shipping</td>
+                    <td align="right">Rs. {shippingCost.toFixed(2)}</td>
+                  </tr>
+                  <tr>
+                    <td>Sub Total </td>
+                    <td></td>
+                    <td align="right"> Rs. {totalPrice.toFixed(2)}</td>
+                  </tr>
                 </tbody>
               </table>
-              <div>
-                <p
-                  style={{
-                    textAlign: "right",
-                    marginRight: "95px",
-                    marginTop: "20px",
-                    marginBottom: "0px",
-                  }}
-                >{`Shipping     Rs. ${shippingCost}`}</p>
-                <p
-                  style={{
-                    textAlign: "right",
-                    marginRight: "77px",
-                    marginTop: "0px",
-                    padding: "0px",
-                  }}
-                >{`Sub Total     Rs. ${totalPrice}`}</p>
-              </div>
             </div>
           </div>
         </div>

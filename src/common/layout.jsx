@@ -17,7 +17,7 @@ const Layout = ({ children, hideSideBar }) => {
         
         const payload = {
             categories: [
-              { name: "All Categories", id: undefined },
+              { name: "All Categories", id: undefined , icon: "fas fa-star"},
               ...result.data,
             ],
           }

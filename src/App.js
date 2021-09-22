@@ -7,7 +7,7 @@ import Book from "./pages/book/book";
 import ErrorComponent from "./pages/errorComponent/errorComponent";
 import Admin from "./pages/admin/admin";
 import { useSelector } from "react-redux";
-import Checkout from './pages/checkout/checkout';
+import Checkout from "./pages/checkout/checkout";
 
 function App() {
   // const user = {
@@ -27,7 +27,6 @@ function App() {
           <Route path="/add" component={Admin} />
           <Route path="/users" component={Admin} />
           <Route path="/orders" component={Admin} />
-
           <Redirect from="/" exact to="/admin" />
           <Redirect exact to="/admin" />
         </Switch>

@@ -1,60 +1,6 @@
 import ValidatedInput from "./../../common/ValidatedInput";
-import { useState } from "react";
-import * as yup from "yup";
 
-let schema = yup.object().shape({
-  streetAddress: yup.string().required().min(3),
-  townCity: yup.string().required().min(3),
-  postcode: yup.string().required(),
-  district: yup.string().required(),
-  state: yup.string().required(),
-  phoneNumber: yup.number().required().min(9),
-});
-
-const AddressSection = ({ title }) => {
-  const [inputs, setInputs] = useState({
-    streetAddress: "",
-    townCity: "",
-    district: "",
-    postcode: "",
-    state: "",
-    phoneNumber: "",
-  });
-
-  const [errors, setErrors] = useState({
-    streetAddress: "",
-    townCity: "",
-    district: "",
-    postcode: "",
-    state: "",
-    phoneNumber: "",
-  });
-
-  const handleChange = (e, field) => {
-    setInputs({
-      ...inputs,
-      [field]: e.target.value,
-    });
-
-    const error = {};
-
-    try {
-      schema.validateSync(
-        {
-          ...inputs,
-          [field]: e.target.value,
-        },
-        { abortEarly: false }
-      );
-    } catch (err) {
-      for (let i = 0; i < err.inner.length; i++) {
-        error[err.inner[i].path] = err.inner[i].message;
-      }
-    } finally {
-      setErrors(error);
-    }
-  };
-
+const AddressSection = ({ handleChange, inputs, errors, title, type }) => {
   return (
     <>
       <p style={{ textAlign: "left", marginTop: "15px" }}>{title}</p>
@@ -64,7 +10,7 @@ const AddressSection = ({ title }) => {
             placeholder="Street Address"
             field="streetAddress"
             value={inputs.streetAddress}
-            onChange={(e) => handleChange(e, "streetAddress")}
+            onChange={(e) => handleChange(e, "streetAddress", type)}
             errorText={errors.streetAddress}
           />
         </div>
@@ -73,7 +19,7 @@ const AddressSection = ({ title }) => {
             placeholder="Town/City"
             field="townCity"
             value={inputs.townCity}
-            onChange={(e) => handleChange(e, "townCity")}
+            onChange={(e) => handleChange(e, "townCity", type)}
             errorText={errors.townCity}
           />
         </div>
@@ -84,7 +30,7 @@ const AddressSection = ({ title }) => {
             placeholder="District"
             field="district"
             value={inputs.district}
-            onChange={(e) => handleChange(e, "district")}
+            onChange={(e) => handleChange(e, "district", type)}
             errorText={errors.district}
           />
         </div>
@@ -93,7 +39,7 @@ const AddressSection = ({ title }) => {
             placeholder="Postcode"
             field="postcode"
             value={inputs.postcode}
-            onChange={(e) => handleChange(e, "postcode")}
+            onChange={(e) => handleChange(e, "postcode", type)}
             errorText={errors.postcode}
           />
         </div>
@@ -102,7 +48,7 @@ const AddressSection = ({ title }) => {
             placeholder="State"
             field="state"
             value={inputs.state}
-            onChange={(e) => handleChange(e, "state")}
+            onChange={(e) => handleChange(e, "state", type)}
             errorText={errors.state}
           />
         </div>
@@ -113,7 +59,7 @@ const AddressSection = ({ title }) => {
             placeholder="Phone Number"
             field="phoneNumber"
             value={inputs.phoneNumber}
-            onChange={(e) => handleChange(e, "phoneNumber")}
+            onChange={(e) => handleChange(e, "phoneNumber", type)}
             errorText={errors.phoneNumber}
           />
         </div>

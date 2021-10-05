@@ -36,7 +36,7 @@ const Book = ({ match }) => {
         payload: { selectedBook: currentBook, selectedBookQty: quantity },
       });
     } else {
-      alert(`Quantity must be greater than available quantity`);
+      alert(`Sorry, we do not have enough of that item available`);
     }
   };
 
@@ -113,7 +113,7 @@ const Book = ({ match }) => {
               <img
                 src={currentBook.imageUrl}
                 alt=""
-                style={{ height: "auto", width: "100%" }}
+                style={{ height: "auto", width: "100%"}}
               />
             </div>
             <div

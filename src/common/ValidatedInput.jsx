@@ -27,11 +27,11 @@ const ValidatedInput = ({
         onChange={onChange}
         value={value}
       />
-      {/* { (
+      { (
         <div class="form-text" style={{ color: "red", fontSize: 9, padding:0 }}>
           {errorText}
         </div>
-      )} */}
+      )}
     </form>
   );
 };

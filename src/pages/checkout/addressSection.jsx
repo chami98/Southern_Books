@@ -1,27 +1,57 @@
 import ValidatedInput from "./../../common/ValidatedInput";
 import { useState } from "react";
+import * as yup from "yup";
+
+let schema = yup.object().shape({
+  streetAddress: yup.string().required().min(3),
+  townCity: yup.string().required().min(3),
+  postcode: yup.string().required(),
+  district: yup.string().required(),
+  state: yup.string().required(),
+  phoneNumber: yup.number().required().min(9),
+});
 
 const AddressSection = ({ title }) => {
-  const [streetAddress, setStreetAddress] = useState();
-  const [townCity, setTownCity] = useState();
-  const [district, setDistrict] = useState();
-  const [postcode, setPostcode] = useState();
-  const [state, setState] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
+  const [inputs, setInputs] = useState({
+    streetAddress: "",
+    townCity: "",
+    district: "",
+    postcode: "",
+    state: "",
+    phoneNumber: "",
+  });
+
+  const [errors, setErrors] = useState({
+    streetAddress: "",
+    townCity: "",
+    district: "",
+    postcode: "",
+    state: "",
+    phoneNumber: "",
+  });
 
   const handleChange = (e, field) => {
-    if (field == "streetAddress") {
-      setStreetAddress(e.target.value);
-    } else if (field == "townCity") {
-      setTownCity(e.target.value);
-    } else if (field == "district") {
-      setDistrict(e.target.value);
-    } else if (field == "postcode") {
-      setPostcode(e.target.value);
-    } else if (field == "state") {
-      setState(e.target.value);
-    } else if (field == "phoneNumber") {
-      setPhoneNumber(e.target.value);
+    setInputs({
+      ...inputs,
+      [field]: e.target.value,
+    });
+
+    const error = {};
+
+    try {
+      schema.validateSync(
+        {
+          ...inputs,
+          [field]: e.target.value,
+        },
+        { abortEarly: false }
+      );
+    } catch (err) {
+      for (let i = 0; i < err.inner.length; i++) {
+        error[err.inner[i].path] = err.inner[i].message;
+      }
+    } finally {
+      setErrors(error);
     }
   };
 
@@ -33,18 +63,18 @@ const AddressSection = ({ title }) => {
           <ValidatedInput
             placeholder="Street Address"
             field="streetAddress"
-            value={streetAddress}
+            value={inputs.streetAddress}
             onChange={(e) => handleChange(e, "streetAddress")}
-            errorText={streetAddress == "cha" && " ljkljk"}
+            errorText={errors.streetAddress}
           />
         </div>
         <div className="col">
           <ValidatedInput
             placeholder="Town/City"
             field="townCity"
-            value={townCity}
+            value={inputs.townCity}
             onChange={(e) => handleChange(e, "townCity")}
-            errorText={townCity == "cha" && " ljkljk"}
+            errorText={errors.townCity}
           />
         </div>
       </div>
@@ -53,27 +83,27 @@ const AddressSection = ({ title }) => {
           <ValidatedInput
             placeholder="District"
             field="district"
-            value={district}
+            value={inputs.district}
             onChange={(e) => handleChange(e, "district")}
-            errorText={district == "cha" && " ljkljk"}
+            errorText={errors.district}
           />
         </div>
         <div className="col">
           <ValidatedInput
             placeholder="Postcode"
             field="postcode"
-            value={postcode}
+            value={inputs.postcode}
             onChange={(e) => handleChange(e, "postcode")}
-            errorText={postcode == "cha" && " ljkljk"}
+            errorText={errors.postcode}
           />
         </div>
         <div className="col">
           <ValidatedInput
             placeholder="State"
             field="state"
-            value={state}
+            value={inputs.state}
             onChange={(e) => handleChange(e, "state")}
-            errorText={state == "cha" && " ljkljk"}
+            errorText={errors.state}
           />
         </div>
       </div>
@@ -82,9 +112,9 @@ const AddressSection = ({ title }) => {
           <ValidatedInput
             placeholder="Phone Number"
             field="phoneNumber"
-            value={phoneNumber}
+            value={inputs.phoneNumber}
             onChange={(e) => handleChange(e, "phoneNumber")}
-            errorText={phoneNumber == "cha" && " ljkljk"}
+            errorText={errors.phoneNumber}
           />
         </div>
       </div>{" "}

@@ -1,18 +1,47 @@
 import ValidatedInput from "./../../common/ValidatedInput";
 import { useState } from "react";
+import * as yup from "yup";
+
+let schema = yup.object().shape({
+  firstName: yup.string().required().min(3),
+  lastName: yup.string().required().min(3),
+  email: yup.string().required().email(),
+});
 
 const CustomerInformation = () => {
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [email, setEmail] = useState();
+  const [inputs, setInputs] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
+
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
 
   const handleChange = (e, field) => {
-    if (field == "firstName") {
-      setFirstName(e.target.value);
-    } else if (field == "lastName") {
-      setLastName(e.target.value);
-    } else if (field == "email") {
-      setEmail(e.target.value);
+    setInputs({
+      ...inputs,
+      [field]: e.target.value,
+    });
+
+    const error = {};
+    try {
+      schema.validateSync(
+        {
+          ...inputs,
+          [field]: e.target.value,
+        },
+        { abortEarly: false }
+      );
+    } catch (err) {
+      for (let i = 0; i < err.inner.length; i++) {
+        error[err.inner[i].path] = err.inner[i].message;
+      }
+    } finally {
+      setErrors(error);
     }
   };
 
@@ -24,18 +53,18 @@ const CustomerInformation = () => {
           <ValidatedInput
             placeholder="First name"
             field="firstName"
-            value={firstName}
+            value={inputs.firstName}
             onChange={(e) => handleChange(e, "firstName")}
-            errorText={firstName == "cha" && " ljkljk"}
+            errorText={errors.firstName}
           />
         </div>
         <div className="col">
           <ValidatedInput
             placeholder="Last name"
             field="lastName"
-            value={lastName}
+            value={inputs.lastName}
             onChange={(e) => handleChange(e, "lastName")}
-            errorText={lastName == "cha" && " ljkljk"}
+            errorText={errors.lastName}
           />
         </div>
       </div>
@@ -46,9 +75,9 @@ const CustomerInformation = () => {
             placeholder="Email"
             field="email"
             type="email"
-            value={email}
+            value={inputs.email}
             onChange={(e) => handleChange(e, "email")}
-            errorText={email == "cha" && " ljkljk"}
+            errorText={errors.email}
           />
         </div>
       </div>
@@ -57,3 +86,16 @@ const CustomerInformation = () => {
 };
 
 export default CustomerInformation;
+
+// const k = "key3";
+
+// const obj = {
+//   key1 : "value1",
+//   [k] : "value2",
+//   k: k
+// }
+
+// console.log(obj.key1); // => "value1"
+// console.log(obj.key2); // => undefined
+// console.log(obj.key3); // => "value1"
+// console.log(obj.k); // => "key3"

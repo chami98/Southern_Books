@@ -8,6 +8,7 @@ import ErrorComponent from "./pages/errorComponent/errorComponent";
 import Admin from "./pages/admin/admin";
 import { useSelector } from "react-redux";
 import Checkout from "./pages/checkout/checkout";
+import Employee from "./pages/employee/employee";
 
 function App() {
   // const user = {
@@ -29,6 +30,19 @@ function App() {
           <Route path="/orders" component={Admin} />
           <Redirect from="/" exact to="/admin" />
           <Redirect exact to="/admin" />
+        </Switch>
+      </div>
+    );
+  } else if (user.claims.employee) {
+    return (
+      <div className="App">
+        <Switch>
+          <Route path="/employee" component={Employee} />
+          <Redirect from="/" exact to="/employee" />
+          <Route path="/Books1" component={Employee} />
+          <Route path="/boks" component={Employee} />
+          <Route path="/books" component={Employee} />
+          <Redirect exact to="/employee" />
         </Switch>
       </div>
     );

@@ -91,6 +91,8 @@ const Header = () => {
   console.log("user", user);
 
   const isAdmin = userClaims.admin ? true : false;
+  const isEmployee = userClaims.employee ? true : false;
+
   const displayName = user.user.displayName;
   const photoUrl = user.user.photoURL;
   const [profilePopoverOpen, setProfilePopoverOpen] = useState(false);
@@ -131,6 +133,24 @@ const Header = () => {
           >
             {isAdmin ? (
               <>
+                <li style={{ marginRight: "0px", marginLeft: "122px" }}>
+                  <Link
+                    to="/home"
+                    className="nav-link px-1 text-white "
+                    style={{ fontFamily: "Courgette", fontSize: "16.7px" }}
+                  >
+                    <img
+                      src="https://firebasestorage.googleapis.com/v0/b/southernbooks-b34af.appspot.com/o/southern%20books%20logo.png?alt=media&token=2e03010c-09ba-4fb8-8fbb-ef502ca854e3"
+                      style={{
+                        width: "26px",
+                        padding: "0px",
+                        marginBottom: "3px",
+                        marginRight: "0px",
+                      }}
+                    />
+                    SouthernBooks
+                  </Link>
+                </li>
                 <li>
                   <Link to="/orders" className="nav-link px-1 text-white ">
                     Orders
@@ -145,6 +165,43 @@ const Header = () => {
                 <li>
                   <Link to="/add" className="nav-link px-1 text-white">
                     Add
+                  </Link>
+                </li>
+              </>
+            ) : isEmployee ? (
+              <>
+                <li style={{ marginRight: "0px", marginLeft: "122px" }}>
+                  <Link
+                    to="/home"
+                    className="nav-link px-1 text-white "
+                    style={{ fontFamily: "Courgette", fontSize: "16.7px" }}
+                  >
+                    <img
+                      src="https://firebasestorage.googleapis.com/v0/b/southernbooks-b34af.appspot.com/o/southern%20books%20logo.png?alt=media&token=2e03010c-09ba-4fb8-8fbb-ef502ca854e3"
+                      style={{
+                        width: "26px",
+                        padding: "0px",
+                        marginBottom: "3px",
+                        marginRight: "0px",
+                      }}
+                    />
+                    SouthernBooks
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/Books1" className="nav-link px-1 text-white ">
+                    Books1
+                  </Link>
+                </li>
+
+                <li>
+                  <Link to="/boks" className="nav-link px-1 text-white">
+                    boks
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/books" className="nav-link px-1 text-white">
+                    books
                   </Link>
                 </li>
               </>
@@ -189,7 +246,7 @@ const Header = () => {
             )}
           </ul>
 
-          {!isAdmin ? (
+          {!isAdmin && !isEmployee ? (
             <form className="col-4 mb-sm-0 me-sm-3">
               <input
                 type="search"
@@ -417,7 +474,7 @@ const Header = () => {
             ) : null}
           </div>
 
-          {!isAdmin ? (
+          {!isAdmin && !isEmployee ? (
             <div>
               <Link to="#" className="nav-link px-1 text-white">
                 <Popover
@@ -443,7 +500,9 @@ const Header = () => {
                       {selectedBooks.length > 0 ? (
                         <Cart />
                       ) : (
-                        <div style={{ textAlign: "center" , marginBottom:"2px" }}>
+                        <div
+                          style={{ textAlign: "center", marginBottom: "2px" }}
+                        >
                           <img
                             src="https://firebasestorage.googleapis.com/v0/b/southernbooks-b34af.appspot.com/o/emty%20cart.png?alt=media&token=767a37a6-bfdf-47ea-894d-c3b6f542058a"
                             style={{ width: "130px", marginBottom: "8px" }}

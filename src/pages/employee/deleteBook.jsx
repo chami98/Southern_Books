@@ -3,16 +3,35 @@ import { Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { BASE_URL } from "../../constants";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function MyVerticallyCenteredModal(props) {
   const DeleteBook = () => {
+
     axios
       .delete(BASE_URL + `/books/delete/${props.book.id}`)
       .then(() => {
-        console.log("Book deleted successfully");
+        toast.success("Book is successfully deleted!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       })
       .catch((err) => {
-        console.log("Book is not deleted", err.response.status);
+        toast.error("Book is not deleted", err.response.status, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       });
   };
 
@@ -97,6 +116,17 @@ function MyVerticallyCenteredModal(props) {
                   >
                     Delete
                   </button>
+                  {/* <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  /> */}
                 </div>
               </div>
             </div>

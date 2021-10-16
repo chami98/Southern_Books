@@ -36,7 +36,7 @@ const Employee = () => {
           type: "BOOKS_LOADING_FINISHED",
         });
       });
-  });
+  }, []);
 
   const books = useSelector((state) => state.app.books);
   console.log("books", books);

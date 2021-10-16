@@ -1,5 +1,6 @@
 import ViewBooks from "./ViewBooks";
 import DeleteBook from "./deleteBook";
+import EditBooks from "./editBooks";
 
 const BookStockDetails = ({ books }) => {
   return (
@@ -54,12 +55,14 @@ const BookStockDetails = ({ books }) => {
               </td>
               <td>{book.price}/=</td>
               <td>
-                <button
+                {/* <button
                   className="btn btn-outline-primary btn-sm "
                   style={{ marginRight: "5px" }}
                 >
                   <i class="fas fa-edit"></i>
-                </button>
+                </button> */}
+
+                <EditBooks book={book} />
 
                 <ViewBooks book={book} />
 

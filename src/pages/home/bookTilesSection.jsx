@@ -16,10 +16,6 @@ const BookTilesSection = () => {
 
   useEffect(() => {
     // starts loading
-    dispatch({
-      type: "BOOKS_LOADING",
-      payload: true,
-    });
 
     axios
       .get(BASE_URL + "/books", {
@@ -72,7 +68,22 @@ const BookTilesSection = () => {
       </div>
     );
   } else if (!booksLoading && books.length == 0) {
-    return <div>No Books!</div>;
+    return (
+      <div className="d-flex justify-content-center">
+        <div
+          className="spinner-border text-primary "
+          style={{
+            width: "5rem",
+            height: "5rem",
+            fontSize: "30px",
+            marginTop: "30vh",
+          }}
+          role="status"
+        >
+          <span className="sr-only"></span>
+        </div>
+      </div>
+    );
   } else {
     return (
       <div className="container">

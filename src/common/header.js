@@ -102,9 +102,9 @@ const Header = () => {
 
   const handleLogout = () => {
     // setloggedIn(false);
-
-    history.push("/home");
-    auth.signOut();
+    auth.signOut().then(() => {
+      history.push("/home");
+    });
   };
 
   const onChangeHandler = (value) => {

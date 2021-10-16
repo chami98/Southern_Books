@@ -12,7 +12,7 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          {props.book.name}
+          <span class="badge rounded-pill bg-success  ">{props.book.name}</span>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
@@ -37,9 +37,9 @@ function MyVerticallyCenteredModal(props) {
           </div>
         </div>
       </Modal.Body>
-      <Modal.Footer>
+      {/* <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
+      </Modal.Footer> */}
     </Modal>
   );
 }

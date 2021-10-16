@@ -57,8 +57,7 @@ function App() {
         <Route path="/checkout" component={Checkout} />
         <Route path="/books/:id" component={Book} />
         <Route path="/notFound" component={ErrorComponent} />
-
-        <Redirect from={["/", "/admin", "/add", "/user"]} exact to="/home" />
+        {/* <Redirect from={["/", "/admin", "/add", "/user" , "/employee"]} exact to="/home" /> */}
         <Redirect exact to="/notFound" />
       </Switch>
     </div>

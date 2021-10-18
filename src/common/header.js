@@ -18,6 +18,7 @@ import { initializeFirebase } from "./../firebase/init";
 import { Popover } from "react-tiny-popover";
 import { store } from "./../index";
 import Cart from "./cart";
+
 initializeFirebase();
 const provider = new GoogleAuthProvider();
 const auth = getAuth();
@@ -61,6 +62,10 @@ onAuthStateChanged(auth, (user) => {
         user: user,
         claims: idTokenResult.claims,
       };
+
+      console.log("User Details", userDetails.user);
+
+      localStorage.setItem("accessToken", userDetails.user.accessToken);
 
       store.dispatch({
         type: "USER_SIGN_IN",

@@ -191,7 +191,22 @@ function MyVerticallyCenteredModal(props) {
                 />
 
                 <div className="row" style={{ marginTop: "10px" }}>
-                  <div className="col-8"></div>
+                  <div className="col-8" style={{ marginTop: "8px" }}>
+                    <span
+                      style={{ fontFamily: "Courgette", fontSize: "16.7px" }}
+                    >
+                      <img
+                        src="https://firebasestorage.googleapis.com/v0/b/southernbooks-b34af.appspot.com/o/southern%20books%20logo.png?alt=media&token=2e03010c-09ba-4fb8-8fbb-ef502ca854e3"
+                        style={{
+                          width: "26px",
+                          padding: "0px",
+                          marginBottom: "3px",
+                          marginRight: "0px",
+                        }}
+                      />
+                      SouthernBooks
+                    </span>
+                  </div>
 
                   <div className="col-4">
                     <button

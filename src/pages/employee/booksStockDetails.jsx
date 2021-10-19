@@ -11,7 +11,7 @@ const BookStockDetails = ({ books }) => {
             <th scope="col"></th>
             <th
               scope="col"
-              style={{ paddingRight: "118px ", textAlign: "right" }}
+              style={{ paddingRight: "118px ", textAlign: "left" }}
             >
               Book Name
             </th>
@@ -26,20 +26,14 @@ const BookStockDetails = ({ books }) => {
         {books.map((book) => (
           <tbody>
             <tr key={book.id}>
-              <th scope="row"></th>
               <td>
-                {" "}
+                <img src={book.imageUrl} alt="" style={{ width: "40px" ,   }} />
+              </td>
+              <td>
                 <div className="row">
-                  <div
-                    className="col"
-                    style={{ marginRight: "0px", textAlign: "center" }}
-                  >
-                    <img src={book.imageUrl} alt="" style={{ width: "80px" }} />{" "}
-                  </div>
-
                   <div className="col" style={{ marginLeft: "0px" }}>
                     <span class="badge rounded-pill bg-warning text-dark ">
-                      {book.name}{" "}
+                      {book.name}
                     </span>
                   </div>
                 </div>
@@ -48,7 +42,6 @@ const BookStockDetails = ({ books }) => {
               <td>{book.isbn}</td>
               <td>{book.category.name}</td>
               <td>
-                {" "}
                 <span class="badge rounded-pill bg-secondary  ">
                   {book.availableQuantity} In Stock{" "}
                 </span>

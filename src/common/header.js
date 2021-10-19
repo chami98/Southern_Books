@@ -18,6 +18,7 @@ import { initializeFirebase } from "./../firebase/init";
 import { Popover } from "react-tiny-popover";
 import { store } from "./../index";
 import Cart from "./cart";
+import AddBooks from "./../pages/employee/addBooks";
 
 initializeFirebase();
 const provider = new GoogleAuthProvider();
@@ -85,6 +86,8 @@ onAuthStateChanged(auth, (user) => {
 });
 
 const Header = () => {
+  const books = useSelector((state) => state.app.books);
+
   const history = useHistory();
   const dispatch = useDispatch();
   const selectedBooks = useSelector((state) => state.cart.selectedBooks);
@@ -175,7 +178,7 @@ const Header = () => {
               </>
             ) : isEmployee ? (
               <>
-                <li style={{ marginRight: "0px", marginLeft: "122px" }}>
+                <li style={{ marginRight: "20px", marginLeft: "10px" }}>
                   <Link
                     to="/home"
                     className="nav-link px-1 text-white "
@@ -194,19 +197,17 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/Books1" className="nav-link px-1 text-white ">
-                    Books1
+                  <Link to="#" className="nav-link px-1 text-white ">
+                    Stock
                   </Link>
                 </li>
 
                 <li>
-                  <Link to="/boks" className="nav-link px-1 text-white">
-                    boks
-                  </Link>
+                  <AddBooks books={books} />
                 </li>
                 <li>
-                  <Link to="/books" className="nav-link px-1 text-white">
-                    books
+                  <Link to="/#" className="nav-link px-1 text-white">
+                    Orders
                   </Link>
                 </li>
               </>
@@ -415,7 +416,7 @@ const Header = () => {
                         fontFamily: "Source Sans Pro",
                       }}
                     >
-                      {!isAdmin ? (
+                      {!isAdmin && !isEmployee ? (
                         <>
                           {" "}
                           <div

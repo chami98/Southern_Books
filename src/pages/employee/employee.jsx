@@ -5,8 +5,20 @@ import axios from "axios";
 import { BASE_URL } from "./../../constants";
 import { useState, useEffect } from "react";
 import BookStockDetails from "./booksStockDetails";
+import { ToastContainer, toast } from "react-toastify";
 
 const Employee = () => {
+  useEffect(() => {
+    toast.success("EMPLOYEE DASHBOARD", {
+      position: "top-center",
+      autoClose: 5500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }, []);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -80,13 +92,13 @@ const Employee = () => {
   } else {
     return (
       <Layout hideSideBar>
-        <h1 style={{ marginTop: "80px" }}>
+        <h1 style={{ marginTop: "80px", fontFamily: "Comfortaa" }}>
           {" "}
           <i
-            class="fas fa-user-shield"
-            style={{ marginRight: "5px", marginBottom: "20px" }}
+            class="fas fa-layer-group"
+            style={{ marginRight: "8px", marginBottom: "20px" }}
           ></i>
-          Employee Section
+          Products Stock List
         </h1>
 
         <BookStockDetails books={books} />

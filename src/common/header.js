@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { faGoogle } from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer, toast } from "react-toastify";
 
 import { useHistory } from "react-router";
 import {
@@ -33,6 +34,7 @@ const handleLogin = () => {
       // The signed-in user info.
       const user = result.user;
       console.log("Successfully Logged", result);
+
       // ...
     })
     .catch((error) => {
@@ -112,6 +114,16 @@ const Header = () => {
     // setloggedIn(false);
     auth.signOut().then(() => {
       history.push("/home");
+    });
+
+    toast.success("You have succesfully signed out! ", {
+      position: "top-right",
+      autoClose: 5500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
     });
   };
 

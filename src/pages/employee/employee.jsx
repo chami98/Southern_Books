@@ -9,8 +9,8 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Employee = () => {
   useEffect(() => {
-    toast.success("EMPLOYEE DASHBOARD", {
-      position: "top-center",
+    toast.success("You have succesfully signed in to the Employee Dashboard! ", {
+      position: "top-right",
       autoClose: 5500,
       hideProgressBar: false,
       closeOnClick: true,

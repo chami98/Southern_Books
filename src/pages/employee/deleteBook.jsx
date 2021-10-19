@@ -13,8 +13,8 @@ function MyVerticallyCenteredModal(props) {
       .delete(BASE_URL + `/books/delete/${props.book.id}`)
       .then(() => {
         toast.success("Book is successfully deleted!", {
-          position: "top-center",
-          autoClose: 5000,
+          position: "top-right",
+          autoClose: 5500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,

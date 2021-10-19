@@ -31,9 +31,9 @@ const ErrorComponent = () => {
               on this wild goose chase, and have already taken steps to have the
               person responsible fired.
             </p>
-            <Link class="btn btn-outline-primary" to="/home" role="button">Return to Home</Link>
-              
-            
+            <Link class="btn btn-outline-primary" to="/home" role="button">
+              Return to Home
+            </Link>
           </div>
           <div className="col-6">
             <img

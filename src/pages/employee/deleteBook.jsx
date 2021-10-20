@@ -7,7 +7,17 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function MyVerticallyCenteredModal(props) {
+  const dispatch = useDispatch();
+
   const DeleteBook = () => {
+    const payload = {
+      bookId: props.book.id,
+    };
+
+    dispatch({
+      type: "DELETE_BOOK_BY_ID",
+      payload: payload,
+    });
 
     axios
       .delete(BASE_URL + `/books/delete/${props.book.id}`)
@@ -23,7 +33,7 @@ function MyVerticallyCenteredModal(props) {
         });
       })
       .catch((err) => {
-        toast.error("Book is not deleted", err.response.status, {
+        toast.error("Book is not deleted", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,

@@ -9,17 +9,21 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Employee = () => {
   useEffect(() => {
-    toast.success("You have succesfully signed in to the Employee Dashboard! ", {
-      position: "top-right",
-      autoClose: 5500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    toast.success(
+      "You have succesfully signed in to the Employee Dashboard! ",
+      {
+        position: "top-right",
+        autoClose: 5500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
   }, []);
   const dispatch = useDispatch();
+  const books = useSelector((state) => state.app.books);
 
   useEffect(() => {
     // starts loading
@@ -50,7 +54,6 @@ const Employee = () => {
       });
   }, []);
 
-  const books = useSelector((state) => state.app.books);
   console.log("books", books);
 
   const booksLoading = useSelector((s) => s.app.booksLoading);

@@ -67,6 +67,19 @@ export const appReducer = (state = _initState, action) => {
       };
     }
 
+    case "DELETE_BOOK_BY_ID": {
+      const booksCopy = [...state.books];
+
+      booksCopy.filter(() => {
+        return booksCopy.id != action.payload.bookId;
+      });
+
+      return {
+        ...state,
+        books: [...booksCopy],
+      };
+    }
+
     case "ADD_CURRENT_BOOK_TO_THE_CART": {
       const booksCopy = [...state.books];
 

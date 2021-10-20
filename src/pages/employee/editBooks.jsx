@@ -3,6 +3,8 @@ import { Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+import { BASE_URL } from "./../../constants";
 
 function MyVerticallyCenteredModal(props) {
   const [bookName, setbookName] = useState(props.book.name);
@@ -14,6 +16,23 @@ function MyVerticallyCenteredModal(props) {
   const [dimensions, setDimensions] = useState(props.book.dimensions);
   const [description, setDescription] = useState(props.book.description);
   const [rating, setRating] = useState(props.book.rating);
+
+  const categoryId = categoryName.toUpperCase();
+
+  const book = {
+    name: bookName,
+    authors: authorName,
+    category: categoryName,
+    categoryId: categoryId,
+    isbn: isbn,
+    availableQuantity: quantity,
+    price: price,
+    dimensions: dimensions,
+    description: description,
+    rating: rating,
+  };
+
+  console.log("Book", book);
 
   const handleBookName = (event) => {
     setbookName(event.target.value);
@@ -52,15 +71,23 @@ function MyVerticallyCenteredModal(props) {
   };
 
   const handleSave = () => {
-    toast.success("Book is successfully deleted!", {
-      position: "top-right",
-      autoClose: 5500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    axios
+      .put(BASE_URL + `/books/update/${props.book.id}`, book)
+      .then(function (response) {
+        toast.success("Book is successfully saved!", {
+          position: "top-right",
+          autoClose: 5500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        console.log("response", response.data.id);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (

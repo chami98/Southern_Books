@@ -38,6 +38,7 @@ const Faq = () => {
             header={
               "Why do I need to register on the site before I can place an order?"
             }
+       
             body={
               '  Establishing an online account with "Southern Books" assures you that your purchasing information is secure, confidential and accessible to you. Once you establish an account, you will only need to sign-in to place an order in the future, check on the status of your current order, view past purchases or update your profile information.'
             }

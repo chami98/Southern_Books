@@ -10,7 +10,7 @@ function MyVerticallyCenteredModal(props) {
 
   const handleSave = () => {
     toast.success("Book is successfully deleted!", {
-      position: "top-right",
+      position: "top-center",
       autoClose: 5500,
       hideProgressBar: false,
       closeOnClick: true,

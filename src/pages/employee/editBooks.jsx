@@ -75,7 +75,7 @@ function MyVerticallyCenteredModal(props) {
       .put(BASE_URL + `/books/update/${props.book.id}`, book)
       .then(function (response) {
         toast.success("Book is successfully saved!", {
-          position: "top-right",
+          position: "top-center",
           autoClose: 5500,
           hideProgressBar: false,
           closeOnClick: true,

@@ -12,7 +12,7 @@ const Employee = () => {
     toast.success(
       "You have succesfully signed in to the Employee Dashboard! ",
       {
-        position: "top-right",
+        position: "top-center",
         autoClose: 5500,
         hideProgressBar: false,
         closeOnClick: true,

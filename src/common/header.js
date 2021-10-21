@@ -117,7 +117,7 @@ const Header = () => {
     });
 
     toast.success("You have succesfully signed out! ", {
-      position: "top-right",
+      position: "top-center",
       autoClose: 5500,
       hideProgressBar: false,
       closeOnClick: true,
@@ -153,7 +153,7 @@ const Header = () => {
           >
             {isAdmin ? (
               <>
-                <li style={{ marginRight: "0px", marginLeft: "122px" }}>
+                <li style={{ marginRight: "10px", marginLeft: "0px" }}>
                   <Link
                     to="/home"
                     className="nav-link px-1 text-white "
@@ -173,19 +173,25 @@ const Header = () => {
                 </li>
                 <li>
                   <Link to="/orders" className="nav-link px-1 text-white ">
-                    Orders
+                    <i
+                      class="fas fa-user-plus"
+                      style={{ marginRight: "5px" }}
+                    ></i>
+                    Add User Roles
                   </Link>
                 </li>
 
                 <li>
                   <Link to="/users" className="nav-link px-1 text-white">
-                    Users
+                    <i
+                      class="fas fa-user-times"
+                      style={{ marginRight: "5px" }}
+                    ></i>
+                    Delete User Roles
                   </Link>
                 </li>
                 <li>
-                  <Link to="/add" className="nav-link px-1 text-white">
-                    Add
-                  </Link>
+                  <Link to="/add" className="nav-link px-1 text-white"></Link>
                 </li>
               </>
             ) : isEmployee ? (

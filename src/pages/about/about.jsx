@@ -17,29 +17,31 @@ const About = () => {
           style={{ marginTop: "20vh", textAlign: "left", paddingRight: "50px" }}
         >
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+            We offer tremendous gathering of books in various classification of
+            Fiction, Non-fiction, Biographies, History, Religions, Self – Help,
+            Children. We likewise move in immense accumulation of Investments
+            and Management, Computers, Engineering, Medical, College and School
+            content references books proposed by various foundations as schedule
+            the nation over. Other than to this, we likewise offer an expansive
+            gathering of E-Books at reasonable valuing.We earnestly trust that
+            books can be an extraordinary wellspring of motivation with the
+            ability to impact and shape youthful personalities. Our books not
+            simply go for building up the scholarly capacities of youngsters,
+            rather they are made with the aim of contributing towards their all
+            encompassing improvement.
           </p>
           <p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor
-            at Hampden-Sydney College in Virginia, looked up one of the more
-            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-            going through the cites of the word in classical literature,
-            discovered the undoubtable source. Lorem Ipsum comes from sections
-            1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
-            of Good and Evil) by Cicero, written in 45 BC. This book is a
-            treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-            amet..", comes from a line in section 1.10.32.
+            Our point is to give significant, charming and also animating
+            substance to youngsters that goes much past their normal course
+            books.With this point in view, we treat each book as a work of
+            adoration. Every one of our books are broadly examined, attentively
+            composed and delightfully planned.Development and experimentation
+            are indispensable to our methodology towards books. Our broad
+            gathering of books– picture books, sticker books, story and sticker
+            books, 3D Books, spring up books, innovative idea books, curiosity
+            books, topic based books, movement books, and so on – are a
+            declaration to this methodology. This encourages us in making
+            energizing and testing items for youngsters.
           </p>
         </div>
       </div>

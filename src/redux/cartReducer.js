@@ -38,6 +38,12 @@ export const cartReducer = (state = _initState, action) => {
       };
     }
 
+    case 'CLEAR_CART' : {
+      return {
+        ..._initState
+      }
+    }
+
     default:
       return state;
   }

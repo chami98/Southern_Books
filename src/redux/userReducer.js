@@ -1,6 +1,7 @@
 const _initState = {
   userDetails: { user: {}, claims: {} },
   loggedIn: false,
+  orders : []
 };
 
 export const userReducer = (state = _initState, action) => {

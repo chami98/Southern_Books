@@ -148,7 +148,9 @@ const Header = () => {
           </a> */}
 
           <ul
-            className="nav col-4 me-sm-auto justify-content-center mb-md-0"
+            className={`nav ${
+              user.claims.admin ? "col-8" : "col-4"
+            } me-sm-auto justify-content-center mb-md-0`}
             style={{ fontFamily: "Poppins", fontSize: "13.5px" }}
           >
             {isAdmin ? (
@@ -215,7 +217,7 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="nav-link px-1 text-white ">
+                  <Link to="/employee" className="nav-link px-1 text-white ">
                     Stock
                   </Link>
                 </li>
@@ -224,10 +226,15 @@ const Header = () => {
                   <AddBooks books={books} />
                 </li>
                 <li>
-                  <Link to="/#" className="nav-link px-1 text-white">
+                  <Link to="/orders" className="nav-link px-1 text-white">
                     Orders
                   </Link>
                 </li>
+                {/* <li>
+                  <Link to="/salesReports" className="nav-link px-1 text-white">
+                    Sales reports
+                  </Link>
+                </li> */}
               </>
             ) : (
               <>
@@ -437,21 +444,26 @@ const Header = () => {
                       {!isAdmin && !isEmployee ? (
                         <>
                           {" "}
-                          <div
+                          {/* <div
                             style={{
                               padding: "5px 0",
                               borderBottom: "1px solid #ddd",
                             }}
                           >
                             Profile
-                          </div>
+                          </div> */}
                           <div
                             style={{
                               padding: "5px 0",
                               borderBottom: "1px solid #ddd",
                             }}
                           >
-                            My Orders
+                            <Link
+                              to="/orders"
+                              className="nav-link px-2 text-white"
+                            >
+                              My Orders
+                            </Link>
                           </div>{" "}
                         </>
                       ) : null}

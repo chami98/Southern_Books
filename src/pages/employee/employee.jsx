@@ -10,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 const Employee = () => {
   useEffect(() => {
     toast.success(
-      "You have succesfully signed in to the Employee Dashboard! ",
+      "You have succesfully signed in to the Sellar Dashboard! ",
       {
         position: "top-center",
         autoClose: 5500,

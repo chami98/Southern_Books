@@ -1,25 +1,6 @@
 import ValidatedInput from "./../../common/ValidatedInput";
-import { useState } from "react";
-import * as yup from "yup";
 
-let schema = yup.object().shape({
-  firstName: yup.string().required().min(3),
-  lastName: yup.string().required().min(3),
-  email: yup.string().required().email(),
-});
-
-const CustomerInformation = () => {
-  const [inputs, setInputs] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-  });
-
-  const [errors, setErrors] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-  });
+const CustomerInformation = ({ inputs, setInputs, errors, setErrors, schema }) => {
 
   const handleChange = (e, field) => {
     setInputs({

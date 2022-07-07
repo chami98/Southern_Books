@@ -31,3 +31,6 @@ Demo → [https://southernbooks-b34af.firebaseapp.com/home](https://southernbook
 
 ## Shopping Cart
 ![Screenshot (60)](https://user-images.githubusercontent.com/68820649/177781829-d9180238-a334-40f2-8216-6156e61c5092.png)
+
+## Google Authentication
+![Screenshot (62)](https://user-images.githubusercontent.com/68820649/177782971-eebcf2b7-8daa-44ae-865c-54d18a15e9c7.png)

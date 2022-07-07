@@ -28,3 +28,6 @@ Demo → [https://southernbooks-b34af.firebaseapp.com/home](https://southernbook
 
 ## Book View
 ![Screenshot (59)](https://user-images.githubusercontent.com/68820649/177781229-3948425f-ccb1-48d7-a610-618c62b699a6.png)
+
+## Shopping Cart
+![Screenshot (60)](https://user-images.githubusercontent.com/68820649/177781829-d9180238-a334-40f2-8216-6156e61c5092.png)

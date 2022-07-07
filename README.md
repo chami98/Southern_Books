@@ -40,3 +40,7 @@ Demo → [https://southernbooks-b34af.firebaseapp.com/home](https://southernbook
 
 ## Payment Gateway
 ![Screenshot (64)](https://user-images.githubusercontent.com/68820649/177784268-3ebe9641-9c7f-4f5d-84a4-08311a4faafb.png)
+
+## Stock Management
+
+

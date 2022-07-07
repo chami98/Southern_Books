@@ -45,6 +45,7 @@ Demo → [https://southernbooks-b34af.firebaseapp.com/home](https://southernbook
 ![Screenshot (65)](https://user-images.githubusercontent.com/68820649/177785872-1441fab0-da99-4886-a9b0-ab1eece081ff.png)
 
 ## CRUD Operations
+![Screenshot (66)](https://user-images.githubusercontent.com/68820649/177785986-464b1e52-1665-42a0-b5a8-4399f92b4c6c.png)
 
 
 

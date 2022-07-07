@@ -23,10 +23,8 @@ Demo → [https://southernbooks-b34af.firebaseapp.com/home](https://southernbook
 * _Nodejs_
 * _Redux_
 
-## Client-side 
-
-
-
+## Homepage 
 ![Screenshot (58)](https://user-images.githubusercontent.com/68820649/177780506-31a40f8b-f8dd-4c1e-a7f1-80b2b4975760.png)
 
-
+## Book View
+![Screenshot (59)](https://user-images.githubusercontent.com/68820649/177781229-3948425f-ccb1-48d7-a610-618c62b699a6.png)

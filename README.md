@@ -38,3 +38,5 @@ Demo → [https://southernbooks-b34af.firebaseapp.com/home](https://southernbook
 ## Checkout
 ![Screenshot (63)](https://user-images.githubusercontent.com/68820649/177783792-d817ac6d-c3e0-4abe-a37a-b9bf49808323.png)
 
+## Payment Gateway
+![Screenshot (64)](https://user-images.githubusercontent.com/68820649/177784268-3ebe9641-9c7f-4f5d-84a4-08311a4faafb.png)

@@ -70,7 +70,7 @@ const Faq = () => {
             }
           />
           <FaqDetails
-            header={"I've been signed out of my user session. What's wrong?"}
+            header={"I've been signed out of my user session. What's wrong??"}
             body={
               " If you cannot stay Signed In, you may have cookies disabled on your browser settings. See information above on Cookies. Notice: you will be unable to place your order until you register your account and Sign In."
             }

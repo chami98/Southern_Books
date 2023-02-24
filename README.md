@@ -55,7 +55,7 @@ Contributions are always welcome! If you would like to contribute to the Weather
 
 ---
 
-Thank you for checking out the Personal Expense Tracker Android App! If you have any questions or feedback, please feel free to reach out. Happy coding! 🎉
+Thank you for checking out the Online Book Ordering System! If you have any questions or feedback, please feel free to reach out. Happy coding! 🎉
 
 ---
 

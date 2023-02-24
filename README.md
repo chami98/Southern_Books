@@ -1,47 +1,49 @@
-# Online Book Ordering System 📚
+# 🩺 Vaccine Appointment Booking Web Application
 
-This is an online book ordering system that allows users to search for books, purchase them, manage book inventory, and generate sales reports according to daily, weekly, and monthly periods. It also includes user role management for employees, managers, and administrators. 💻
+This is a web application that simplifies the process of booking a vaccine appointment. The app streamlines the process of scheduling and managing all details related to patients and phlebotomists. 💻
 
+
+The web application is developed using the following technologies:
+
+## ✔️ Technologies Used
+
+- PHP
+
+- JavaScript
+
+- CSS
+
+- SCSS
 
 ## 🌡️ Features
 
+The vaccine appointment booking web application provides the following features:
 
-- Search books by book name, author name, and ISBN number 🔍 
+- 📅 Appointment Booking: Patients can book a vaccine appointment online.
 
-- Purchase books 🛒
+- 🏥 Patient Management: The application manages all details related to patients, including their personal information and vaccination history.
 
-- Book inventory management 📚
+- 👨‍⚕️ Phlebotomist Management: The application manages all details related to phlebotomists, including their availability and location.
 
-- Sales report according to daily, weekly, and monthly periods 📊 
+- 📆 Appointment Management: The application provides an easy-to-use interface for scheduling, rescheduling, and cancelling vaccine appointments.
 
-- User role management for employees, managers, and administrators 👥 
-
-## ✔️ Technologies Used
-- React
-- Redux
-- Nodejs
-- Express JS
-- Firestore
-- Google Authentication
+- 📊 Reporting: The application generates reports on vaccination statistics, patient demographics, and phlebotomist activity.
 
  
+## 🚀 How to Run the Application
 
+To run the vaccine appointment booking web application, follow these steps:
 
-## 💻 Getting Started
+Install the necessary dependencies using Composer.
 
-To get started with this project, clone the repository and install the necessary dependencies using the following commands:
+`composer install`
 
-`git clone https://github.com/chami98/Southern_Books.git`
+Start the PHP server.
 
-`cd online-book-ordering-system`
+`php -S localhost:8000`
 
-`npm install`
+Open the web application in your web browser at http://localhost:8000.
 
-Once the dependencies are installed, start the development server using the following command:
-
-`npm start`
-
-## 🚀 Usage
 
 ## 🤝 Contributing
 
@@ -55,35 +57,7 @@ Contributions are always welcome! If you would like to contribute to the Weather
 
 ---
 
-Thank you for checking out the Personal Expense Tracker Android App! If you have any questions or feedback, please feel free to reach out. Happy coding! 🎉
+Thank you for checking out the Vaccine Appointment Booking Web Application! If you have any questions or feedback, please feel free to reach out. Happy coding! 🎉
 
 ---
-
-## Homepage :low_brightness: 
-![Screenshot (58)](https://user-images.githubusercontent.com/68820649/177780506-31a40f8b-f8dd-4c1e-a7f1-80b2b4975760.png)
-
-## Book View :low_brightness: 
-![Screenshot (59)](https://user-images.githubusercontent.com/68820649/177781229-3948425f-ccb1-48d7-a610-618c62b699a6.png)
-
-## Shopping Cart :low_brightness: 
-![Screenshot (60)](https://user-images.githubusercontent.com/68820649/177781829-d9180238-a334-40f2-8216-6156e61c5092.png)
-
-## Google Authentication :low_brightness: 
-![Screenshot (62)](https://user-images.githubusercontent.com/68820649/177782971-eebcf2b7-8daa-44ae-865c-54d18a15e9c7.png)
-
-## Checkout :low_brightness: 
-![Screenshot (63)](https://user-images.githubusercontent.com/68820649/177783792-d817ac6d-c3e0-4abe-a37a-b9bf49808323.png)
-
-## Payment Gateway :low_brightness: 
-![Screenshot (64)](https://user-images.githubusercontent.com/68820649/177784268-3ebe9641-9c7f-4f5d-84a4-08311a4faafb.png)
-
-## Stock Management :low_brightness: 
-![Screenshot (65)](https://user-images.githubusercontent.com/68820649/177785872-1441fab0-da99-4886-a9b0-ab1eece081ff.png)
-
-## CRUD Operations :low_brightness: 
-![Screenshot (66)](https://user-images.githubusercontent.com/68820649/177785986-464b1e52-1665-42a0-b5a8-4399f92b4c6c.png)
-
-## Admin Side :low_brightness: 
-![Screenshot (67)](https://user-images.githubusercontent.com/68820649/177786436-f446c806-c3ee-4a20-a029-c69abb8a65ea.png)
-
 

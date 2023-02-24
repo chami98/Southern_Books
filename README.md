@@ -1,41 +1,63 @@
+# Online Book Ordering System 💰
+
+This is an online book ordering system that allows users to search for books, purchase them, manage book inventory, and generate sales reports according to daily, weekly, and monthly periods. It also includes user role management for employees, managers, and administrators. 💻
 
 
-# Online Book Ordering Web Application  :books:
-
-## FERN STACK E-COMMERCE WEB APPLICATION :ok_hand:
-
-### This is my second-year software engineering project.
-
-### Ecommerce website built with the FERN stack with React Context ,Google authentication and NodeJs Backend
-
- * _Search books by Book name, author name and ISBN number_
-
- * _Purchase Books_
-
-  * _Book Inventory Management_
-
-   * _Sales Report according to daily weekly and monthly_
-
-  * _User Role Management(Employee, Manager , Admin)_
+## 🌡️ Features
 
 
+- Search books by book name, author name, and ISBN number 🔍 
 
-### :pushpin: Author: Chamikara Mendis
+- Purchase books 🛒
 
-### :gear: Demo → [https://southernbooks-b34af.firebaseapp.com/home](https://southernbooks-b34af.firebaseapp.com/home)
+- Book inventory management 📚
 
-## _Technologies used for the development._ :point_down:
+- Sales report according to daily, weekly, and monthly periods 📊 
+
+- User role management for employees, managers, and administrators 👥 
+
+## Technologies Used
+- React
+- Redux
+- Nodejs
+- Express JS
+- Firestore
+- Google Authentication
+
+ 
 
 
-* _Reactjs_
-* _Express JS_
-* _Firestore_
-* _Google Authentication_
-* _Nodejs_
-* _Redux_
+## 💻 Getting Started
 
-### Install dependencies for server
-- [x] npm install
+To get started with this project, clone the repository and install the necessary dependencies using the following commands:
+
+`git clone https://github.com/chami98/Southern_Books.git`
+
+`cd online-book-ordering-system`
+
+`npm install`
+
+Once the dependencies are installed, start the development server using the following command:
+
+`npm start`
+
+## 🚀 Usage
+
+## 🤝 Contributing
+
+Contributions are always welcome! If you would like to contribute to the Weather Application, please follow these steps:
+
+1. Fork this repository.
+2. Create a new branch for your changes.
+3. Make your changes and commit them to your branch.
+4. Push your changes to your fork.
+5. Create a pull request with a description of your changes.
+
+---
+
+Thank you for checking out the Personal Expense Tracker Android App! If you have any questions or feedback, please feel free to reach out. Happy coding! 🎉
+
+---
 
 ## Homepage :low_brightness: 
 ![Screenshot (58)](https://user-images.githubusercontent.com/68820649/177780506-31a40f8b-f8dd-4c1e-a7f1-80b2b4975760.png)

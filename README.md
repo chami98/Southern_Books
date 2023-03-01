@@ -33,15 +33,23 @@ This is an online book ordering system that allows users to search for books, pu
 
 To get started with this project, clone the repository and install the necessary dependencies using the following commands:
 
-`git clone https://github.com/chami98/Southern_Books.git`
+```
+git clone https://github.com/chami98/Southern_Books.git
+```
 
-`cd online-book-ordering-system`
+```
+cd online-book-ordering-system
+```
 
-`npm install`
+```
+npm install
+```
 
 Once the dependencies are installed, start the development server using the following command:
 
-`npm start`
+```
+npm start
+```
 
 ## 🚀 Usage
 

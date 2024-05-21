@@ -21,7 +21,7 @@ This is an online book ordering system that allows users to search for books, pu
 - React
 - Redux
 - Nodejs
-- Express JS
+- Express
 - Firestore
 - Google Authentication
 

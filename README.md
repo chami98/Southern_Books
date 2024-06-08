@@ -15,7 +15,7 @@ This is an online book ordering system that allows users to search for books, pu
 
 - Sales report according to daily, weekly, and monthly periods 📊 
 
-- User role management for employees, managers, and administrators 👥 
+- User role management for employees, managers, and administrators 
 
 ## ✔️ Technologies Used
 - React

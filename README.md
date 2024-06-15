@@ -52,7 +52,7 @@ npm start
 
 ## 🚀 Usage
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are always welcome! If you would like to contribute to the Weather Application, please follow these steps:
 

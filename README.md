@@ -50,7 +50,7 @@ Once the dependencies are installed, start the development server using the foll
 npm start
 ```
 
-## 🚀 Usage
+## Usage
 
 ##  Contributing
 

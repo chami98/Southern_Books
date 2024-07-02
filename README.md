@@ -4,7 +4,7 @@
 This is an online book ordering system that allows users to search for books, purchase them, manage book inventory, and generate sales reports according to daily, weekly, and monthly periods. It also includes user role management for employees, managers, and administrators. 
 
 
-## 🌡️ Features
+## Features
 
 
 - Search books by book name, author name, and ISBN number 🔍 

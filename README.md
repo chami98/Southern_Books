@@ -9,7 +9,7 @@ This is an online book ordering system that allows users to search for books, pu
 
 - Search books by book name, author name, and ISBN number 🔍 
 
-- Purchase books 🛒
+- Purchase books 
 
 - Book inventory management 📚
 

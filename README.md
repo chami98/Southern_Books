@@ -13,7 +13,7 @@ This is an online book ordering system that allows users to search for books, pu
 
 - Book inventory management 
 
-- Sales report according to daily, weekly, and monthly periods 📊 
+- Sales report according to daily, weekly, and monthly periods 
 
 - User role management for employees, managers, and administrators 
 

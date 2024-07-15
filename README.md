@@ -17,7 +17,7 @@ This is an online book ordering system that allows users to search for books, pu
 
 - User role management for employees, managers, and administrators 
 
-## ✔️ Technologies Used
+## Technologies Used
 - React
 - Redux
 - Nodejs

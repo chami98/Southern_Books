@@ -54,7 +54,7 @@ npm start
 
 ##  Contributing
 
-Contributions are always welcome! If you would like to contribute to the Weather Application, please follow these steps:
+Contributions are always welcome If you would like to contribute to the Weather Application, please follow these steps:
 
 1. Fork this repository.
 2. Create a new branch for your changes.

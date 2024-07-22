@@ -44,7 +44,7 @@ cd online-book-ordering-system
 npm install
 ```
 
-Once the dependencies are installed, start the development server using the following command:
+Once the dependencies are installed, start the development server using the following command
 
 ```
 npm start

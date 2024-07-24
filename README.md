@@ -56,7 +56,7 @@ npm start
 
 Contributions are always welcome If you would like to contribute to the Weather Application, please follow these steps:
 
-1. Fork this repository.
+1. Fork this repository
 2. Create a new branch for your changes.
 3. Make your changes and commit them to your branch.
 4. Push your changes to your fork.

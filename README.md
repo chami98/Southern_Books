@@ -26,7 +26,6 @@ This is an online book ordering system that allows users to search for books pur
 
  
 
-
 ## Getting Started
 
 To get started with this project, clone the repository and install the necessary dependencies using the following commands

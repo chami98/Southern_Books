@@ -6,7 +6,7 @@ This is an online book ordering system that allows users to search for books pur
 ## Features
 
 
-- Search books by book name, author name, and ISBN number 
+- Search books by book name, author name, and ISBN number.
 
 - Purchase books 
 
